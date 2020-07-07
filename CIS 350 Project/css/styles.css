@@ -10,7 +10,22 @@ header nav ul li a{
 /*	padding-top: 0.75em;
 	padding-bottom: 0.75em; */
 	border-radius: 0.25em; 
+/*	border: .1em solid #1D8DD1;*/
 	border: .1em solid #D1080C;
+	
+}
+
+header img {
+	float: left;
+	width-max: 20%;
+/*endzone or ez*/
+	height: 30px; 
+	margin: 1em; 
+
+/*spartan*/
+/*	height: 50px;
+	margin-left: 1em; 
+*/
 }
 
 header nav li {
@@ -53,13 +68,21 @@ nav a{
 }
 
 header {
-	background: #D1080C;
+	background: #D1080C; 
+	position: fixed;
+	width: 100%;
+	z-index: 1;
+/*	background: #1D8DD1; */
 }
 
 header::after {
 	content: ' ';
 	display: table;
 	clear: both;
+}
+
+#userlinks ul li a{
+	color: #FFFFFF;
 }
 
 #container{
@@ -70,11 +93,13 @@ header::after {
 #videobanner {
 	width: 100%;
 	height: auto;
+	margin-top: 3.5em;
 }
 
 .imgbanner {
 	width: 100%;
 	height: auto; 
+	margin-top: 3.75em;
 }
 body { 
 	margin: 0;
@@ -168,28 +193,43 @@ html {
 	padding: 0.75%;
 	margin-left: 0.75%;
 	margin-right: 0.75%;
-	margin-top: 2em;
+	margin-top: 5em;
 	border-radius: 1em;
+	position: fixed;
 }
 
 .feed {
-	float: left;
+	float: right;
 	width: 40%;
 	padding: 0.75%;
 	margin-left: 0.75%;
 	margin-right: 0.75%;
-	margin-top: 1em;
+	margin-top: 4em;
+}
+
+
+.onlyfeed {
+	width: 40%;
+	padding: 0.75%;
+	margin-left: 30%;
+	margin-right: 30%;
+	margin-top: 4em;
+	
 }
 
 .rightcolumn {
-	float: left;
+	float: right;
 	width: 25%;
-	background-color: #282828;
+/*	background-color: #282828; */
 	padding: 0.75%;
 	margin-left: 0.75%;
 	margin-right: 0.75%;
-	margin-top: 2em;
+	margin-top: 4em;
 	border-radius: 1em;
+/*	max-height: 15em;
+	height: 300px;
+	overflow-y: auto; */
+
 }
 
 /* Fake image */
@@ -225,4 +265,8 @@ html {
 .post h2 {
 	font-weight: bold;
 	font-size: 1em;
+}
+
+#main {
+	z-index: 2;
 }
