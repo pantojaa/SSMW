@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block content %}
+     <div id=main>
+        <video id="videobanner" alt="sports video"loop autoplay muted>
+            <source src="{{ url_for('static', filename='sports_montage.mp4') }}" type="video/mp4">
+        </video>
+
+        <div class="login-positioning">
+            <form method="POST" action="">
+                {{ form.hidden_tag() }}
+                <div class="form-login">
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+
+                            {% for category, message in messages %}
+
+                                {% if category == 'success' %}
+                                    <div class="alert-success"> {{ message }} </div>
+                                {% elif category == 'danger' %}
+                                    <div class="alert-danger"> {{ message }} </div>
+                                {% elif category == 'info' %}
+                                    <div class="alert-info"> {{ message }} </div>
+                                {% endif %}
+
+                            {% endfor %}
+
+                        {% endif %}
+                    {% endwith %}
+
+                    <legend class="login-legend">Log in</legend>
+
+                    <div class="form-group">
+                        {{ form.email.label(class="form-inputs-text") }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.email(class="form-inputs") }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.password.label(class="form-inputs-text") }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.password(class="form-inputs") }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.remember() }}
+                        {{ form.remember.label(class="form-inputs-text") }}
+                    </div>
+
+                    <div class="form-group-submit">
+                        {{ form.submit(class="form-inputs-submit-login") }}
+                    </div>
+
+                    <div class="text-border">
+                        <a href="#">Forgot Password? </a>
+                    </div>
+
+                    <div class="bottom_text">
+                        <small> Need An Account? <a href="home#join "> Sign up </a> </small>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+        <!--End of home button-->
+     </div>
+{% endblock%}

@@ -1,0 +1,134 @@
+{% extends "layout.html" %}
+
+{% block content %}
+        <!-- Use the main area to add the main content of the webpage -->
+        <div id=main>
+            <video id="videobanner" alt="sports video"loop autoplay muted>
+                <source src="{{ url_for('static', filename='sports_montage.mp4') }}" type="video/mp4">
+            </video>
+
+            <div class="homebutton">
+                <ul>
+                    <li><a href="#join">Join today</a></li>
+                </ul>
+            </div>
+            <!--End of home button-->
+
+            <section id="join">
+                <article>
+                    <form method="POST" action="">
+                        {{ form.hidden_tag() }} <!-- executes forms (required) -->
+                        <div class="form-register">
+                            <legend class="form-box">Join Today</legend>
+
+                            <!-- Block for first name -->
+                            <div class="form-group">
+                                {{ form.first_name.label(class="form-inputs-text") }}
+                            </div>
+
+                            <div class="form-group">
+                                {% if form.first_name.errors %}
+                                    {{ form.first_name(class="form-inputs error-input") }}
+
+                                    {% for error in form.first_name.errors %}
+                                        <span class="error-text"> {{ error }} </span>
+                                    {% endfor %}
+                                {% else %}
+                                    {{ form.first_name(class="form-inputs") }}
+                                {% endif %}
+                            </div>
+                            <!-- end of first name -->
+
+                            <!-- Block for last name -->
+                            <div class="form-group">
+                                {{ form.last_name.label(class="form-inputs-text") }}
+                            </div>
+
+                            <div class="form-group">
+                                {% if form.last_name.errors %}
+                                    {{ form.last_name(class="form-inputs error-input") }}
+
+                                    {% for error in form.last_name.errors %}
+                                        <span class="error-text"> {{ error }} </span>
+                                    {% endfor %}
+                                {% else %}
+                                    {{ form.last_name(class="form-inputs") }}
+                                {% endif %}
+                            </div>
+                            <!-- end of last name -->
+
+                            <div class="form-group">
+                                {{ form.email.label(class="form-inputs-text") }}
+                            </div>
+
+                            <div class="form-group">
+                                {% if form.email.errors %}
+                                    {{ form.email(class="form-inputs error-input") }}
+
+                                    {% for error in form.email.errors %}
+                                        <span class="error-text"> {{ error }} </span>
+                                    {% endfor %}
+                                {% else %}
+                                    {{ form.email(class="form-inputs") }}
+                                {% endif %}
+                            </div>
+
+                            <div class="form-group">
+                                {{ form.password.label(class="form-inputs-text") }}
+                            </div>
+
+                            <div class="form-group">
+                                {% if form.password.errors %}
+                                    {{ form.password(class="form-inputs error-input") }}
+
+                                    {% for error in form.password.errors %}
+                                        <span class="error-text"> {{ error }} </span>
+                                    {% endfor %}
+                                {% else %}
+                                    {{ form.password(class="form-inputs") }}
+                                {% endif %}
+                            </div>
+
+                            <div class="form-group">
+                                {{ form.confirm_password.label(class="form-inputs-text") }}
+                            </div>
+
+                            <div class="form-group">
+                                {% if form.confirm_password.errors %}
+                                    {{ form.confirm_password(class="form-inputs error-input") }}
+
+                                    {% for error in form.confirm_password.errors %}
+                                        <span class="error-text"> {{ error }} </span>
+                                    {% endfor %}
+                                {% else %}
+                                    {{ form.confirm_password(class="form-inputs") }}
+                                {% endif %}
+                            </div>
+
+                            <div class="form-group-submit">
+                                {{ form.submit(class="form-inputs-submit-signup") }}
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="bottom_text">
+                        <small> Already Have An Account? <a href="{{ url_for('login') }}"> Sign in </a> </small>
+                    </div>
+
+                </article>
+            </section>
+            <!--End of join-->
+
+
+        </div>
+        <!--End of main-->
+
+        <!-- Use the footer area to add webpage footer content -->
+        <footer>
+            &copy; Copyright 2020. All Rights Reserved. <br>
+            <a href="mailto:help@cis350.com">help@cis350.com</a>
+        </footer>
+
+        </div>
+        <!--End of container-->
+{% endblock %}

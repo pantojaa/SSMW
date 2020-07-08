@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--
+Author: Wesley Luna
+Date: June 27,2020
+-->
+<html lang="en">
+    <head>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Displays title -->
+        {% if title %}
+            <title>Endzone - {{ title }}</title>
+        {% else %}
+            <title>Endzone</title>
+        {% endif %}
+
+    </head>
+
+    <body>
+
+        <div id="container">
+
+            <!--Use this area for website name or logo-->
+            <header>
+                    <!-- <a href="index.html"><img src="images/ez.png" alt="ez logo" class="logo"></a> -->
+                <a href="index.html"><img src="{{ url_for('static', filename= 'endzone.png') }}" alt="endzone logo" class="logo"></a>
+                <!-- <a href="index.html"><img src="images/spartan.png" alt="spartan logo" class="logo"></a> -->
+                    <!--Use the nav area to add hyperlinks to the other pages within the website-->
+                <nav>
+                    <ul>
+                        {% if current_user.is_authenticated %}
+                            <li><a href="{{ url_for('home') }}">Home</a></li>
+                            <li><a href="{{ url_for('feed') }}">Feed</a></li>
+                            <li><a href="{{ url_for('about') }}">About</a></li>
+                            <li><a href="event.html">Events</a></li>
+                            <li><a href="friends.html">Friends</a></li>
+                            <li><a href="trending.html">Trending</a></li>
+                            <li><a href="team.html">Team</a></li>
+                            <li><a href="{{ url_for('create_post') }}">New Post</a></li>
+                            <li><a href="{{ url_for('profile') }}">Profile</a></li>
+                        {% else %}
+                            <li><a href="{{ url_for('home') }}">Home</a></li>
+                            <li><a href="{{ url_for('feed') }}">Feed</a></li>
+                            <li><a href="{{ url_for('about') }}">About</a></li>
+                            <li><a href="event.html">Events</a></li>
+                            <li><a href="friends.html">Friends</a></li>
+                            <li><a href="trending.html">Trending</a></li>
+                            <li><a href="team.html">Team</a></li>
+                            <li><a href="profile.html">Profile</a></li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </header>
+        </div>
+        {% block content %} {% endblock content%}
+    </body>
+
+</html>
