@@ -39,7 +39,6 @@ Date: June 27,2020
                             <li><a href="friends.html">Friends</a></li>
                             <li><a href="trending.html">Trending</a></li>
                             <li><a href="team.html">Team</a></li>
-                            <li><a href="{{ url_for('create_post') }}">New Post</a></li>
                             <li><a href="{{ url_for('profile') }}">Profile</a></li>
                         {% else %}
                             <li><a href="{{ url_for('home') }}">Home</a></li>
@@ -49,7 +48,8 @@ Date: June 27,2020
                             <li><a href="friends.html">Friends</a></li>
                             <li><a href="trending.html">Trending</a></li>
                             <li><a href="team.html">Team</a></li>
-                            <li><a href="profile.html">Profile</a></li>
+                            <li><a href="{{ url_for('profile') }}">Profile</a></li>
+                            <li><a href="{{ url_for('login') }}">Login</a></li>
                         {% endif %}
                     </ul>
                 </nav>

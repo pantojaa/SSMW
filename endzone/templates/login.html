@@ -1,11 +1,6 @@
 {% extends "layout.html" %}
 
 {% block content %}
-     <div id=main>
-        <video id="videobanner" alt="sports video"loop autoplay muted>
-            <source src="{{ url_for('static', filename='sports_montage.mp4') }}" type="video/mp4">
-        </video>
-
         <div class="login-positioning">
             <form method="POST" action="">
                 {{ form.hidden_tag() }}
@@ -56,11 +51,11 @@
                     </div>
 
                     <div class="text-border">
-                        <a href="#">Forgot Password? </a>
+                        <a class="link-properties" href="#">Forgot Password? </a>
                     </div>
 
                     <div class="bottom_text">
-                        <small> Need An Account? <a href="home#join "> Sign up </a> </small>
+                        <small> Need An Account? <a class="link-properties" href="home#join "> Sign up </a> </small>
                     </div>
 
                 </div>

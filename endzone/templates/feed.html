@@ -12,6 +12,8 @@
 				<li><a href="trending.html">Trending</a></li>
 				<li><a href="team.html">Team</a></li>
 				<li><a href="{{ url_for('profile') }}">Profile</a></li>
+				<li><a href="{{ url_for('create_post') }}">New Post</a></li>
+				<li><a href="{{ url_for('logout') }}">Logout</a></li>
 			</ul>
 		</section>
 
@@ -77,19 +79,34 @@
 
 			{% for post in posts %}
 				<article class="post">
-						{% if post.author == current_user %}
-							<div class="post-misc">
-								<a class="link-properties" href="{{ url_for('update_post', post_id=post.id) }}"> Edit </a>
-								<a class="link-properties" href="{{ url_for('delete_post', post_id=post.id) }}"> Delete </a>
-							</div>
-						{% endif %}
+					{% if post.author == current_user %}
+						<div class="post-misc">
+							<ul class="button-side">
+								<li> <a href="{{ url_for('update_post', post_id=post.id) }}"> {{ form.edit() }}</a> </li>
+								<li> <a href="{{ url_for('delete_post', post_id=post.id) }}"> {{ form.delete()}} </a> </li>
+							</ul>
+						</div>
+					{% endif %}
+
 					<div class="smallfakeimg">
-						<img class="article-img" src="{{ image }}">
+						<img class="article-img" src="{{  url_for('static', filename='pics/' + post.author.img_file)}}">
 					</div>
-					<h2 class="post-title"> {{ post.title }} </h2>
-					<h5>{{ post.author.first_name }} {{ post.author.last_name}} {{ post.date_posted.strftime('%m-%d-%Y') }}</h5>
-					<p>{{ post.content }}</p>
-					<div class="fakeimg">Image</div>
+					<div class="post-title">
+						{{ post.title }}
+					</div>
+
+					<div class="post-publisher">
+						{{ post.author.first_name }} {{ post.author.last_name }}
+						{{ post.date_posted.strftime('%m/%d/%Y') }}
+					</div>
+
+					<p class="post-content">{{ post.content }}</p>
+
+					{% if post.post_image != 'temporary.png' %}
+						<div class="fakeimg">
+							<img class="post-image-properties" src="{{ url_for('static', filename='pics/' + post.post_image) }}">
+						</div>
+					{% endif %}
 				</article>
 			{% endfor %}
 

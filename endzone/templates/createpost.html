@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block content %}
-	<div id=main>
+<div id=main xmlns="http://www.w3.org/1999/html">
         <!-- Used for formatting -->
 		<section class="rightcolumn">
 		</section>
@@ -9,9 +9,8 @@
 
 		<section class="feed">
 			<article class="post">
-                <form method="POST" action="">
+                <form method="POST" action="" enctype="multipart/form-data">
                     {{ form.hidden_tag() }}
-
                     <div class="form-post">
                         <legend class="new_post-legend">{{ legend }}</legend>
 
@@ -43,7 +42,18 @@
                                     <span class="error-text"> {{ error }} </span>
                                 {% endfor %}
                             {% else %}
-                                    {{ form.content(class="form-inputs") }}
+                                {{ form.content(class="form-inputs") }}
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group-post">
+                            {{ form.image.label() }}
+                            {{ form.image() }}
+
+                            {% if form.image.errors %}
+                                {% for error in form.image.errors %}
+                            <span class="error-text"> {{ error }} </span> </br>
+                                {% endfor %}
                             {% endif %}
                         </div>
 

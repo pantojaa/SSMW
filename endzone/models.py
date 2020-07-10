@@ -27,6 +27,7 @@ class Post(db.Model):
     date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     content = db.Column(db.Text, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    post_image = db.Column(db.String(20), nullable=False, default='temporary.png')
 
     def __repr__(self):  # how object is printed to console
         return f"Post('{self.title}', '{self.date_posted}')"

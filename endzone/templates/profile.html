@@ -1,14 +1,63 @@
 {% extends "layout.html"%}
 
 {% block content %}
-    <h1> {{ current_user.first_name }} </h1>
+<div id="container">
+	<!-- Use the main area to add the main content of the webpage -->
+	<div id=main>
+		<img src="{{ url_for('static', filename='soccerball.jpg') }}" alt="soccer ball" class="imgbanner">
+		<div class="profile-picture">
+			<img class="profile-img" src="{{ image }}">
+		</div>
+		<section class="onlyfeed">
+			<form method="POST" action="" enctype="multipart/form-data">
+				{{ form.hidden_tag() }}
+				<div class="form-group-post">
+					{{ form.select_file() }}
 
-        <!-- Use the footer area to add webpage footer content -->
-        <footer>
-            &copy; Copyright 2020. All Rights Reserved. <br>
-            <a href="mailto:help@cis350.com">help@cis350.com</a>
-        </footer>
+					{% if form.select_file.errors %}
+						{% for error in form.select_file.errors %}
+					<span class="error-text"> {{ error }} </span> </br>
+						{% endfor %}
+					{% endif %}
+					 </br>
+					{{ form.submit(class="form-inputs-submit-post") }}
+				</div>
+			</form>
 
+			<article class="post">
+				<h2>BIO</h2>
+				<p>First Name: {{ current_user.first_name }}</p>
+				<p>Last Name: {{ current_user.last_name }}</p>
+				<p> Highschool : sad</p>
+			</article>
+
+			{% for post in posts %}
+				{% if post.author == current_user %}
+					<article class="post">
+							<div class="smallfakeimg">
+								<img class="article-img" src="{{ image }}">
+							</div>
+							<div class="post-title">
+								{{ post.title }}
+							</div>
+
+							<div class="post-publisher">
+								{{ post.author.first_name }} {{ post.author.last_name }}
+								{{ post.date_posted.strftime('%m/%d/%Y') }}
+							</div>
+
+							<p class="post-content">{{ post.content }}</p>
+
+							{% if post.post_image != 'temporary.png' %}
+								<div class="fakeimg">
+									<img class="post-image-properties" src="{{ url_for('static', filename='pics/' + post.post_image) }}">
+								</div>
+							{% endif %}
+					</article>
+				{% endif %}
+			{% endfor %}
+
+		</section>
         </div>
-
+	</div><!--End of main-->
 {% endblock %}
