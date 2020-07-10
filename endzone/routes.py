@@ -1,6 +1,6 @@
 from endzone.models import User, Post
 from flask import render_template, url_for, flash, redirect, request, abort
-from endzone.forms import RegistrationForm, LoginForm, PostForm, UpdateProfile
+from endzone.forms import RegistrationForm, LoginForm, PostForm, UpdateProfileForm
 from endzone import app, bcrypt, db
 from flask_login import login_user, current_user, logout_user, login_required
 from PIL import Image
@@ -95,14 +95,8 @@ def save_profile_pic(form_image):
 @login_required
 def profile():
     posts = Post.query.all()
-    form = UpdateProfile()
+    form = UpdateProfileForm()
     image = url_for('static', filename='pics/' + current_user.img_file)
-    if form.validate_on_submit():
-        if form.select_file.data:
-            profile_picture = save_profile_pic(form.select_file.data)
-            current_user.img_file = profile_picture
-        db.session.commit()
-        return redirect(url_for('profile'))
     return render_template('profile.html', title="Account", posts=posts, image=image, form=form)
 
 
@@ -156,7 +150,7 @@ def update_post(post_id):
             current_user.img_file = picture
         db.session.commit()
         flash('Your post has been updated', 'success')
-        return redirect( url_for('feed', post_id=post.id))
+        return redirect(url_for('feed', post_id=post.id))
     elif request.method == 'GET':
         form.title.data = post.title
         form.content.data = post.content
@@ -174,3 +168,23 @@ def delete_post(post_id):
     flash('Your post has been deleted', 'danger')
     return redirect(url_for('feed'))
 
+
+@app.route('/update-profile', methods=['GET', 'POST'])
+@login_required
+def update_profile():
+    form = UpdateProfileForm()
+    if form.validate_on_submit():
+        if form.select_file.data:
+            profile_picture = save_profile_pic(form.select_file.data)
+            current_user.img_file = profile_picture
+        current_user.first_name = form.first_name.data
+        current_user.last_name = form.last_name.data
+        db.session.commit()
+        flash('Your profile has been updated.', 'success')
+        return redirect(url_for('profile'))
+    elif request.method == 'GET':
+        form.first_name.data = current_user.first_name
+        form.last_name.data = current_user.last_name
+        form.email.data = current_user.email
+    image = url_for('static', filename='pics/' + current_user.img_file)
+    return render_template('update_profile.html', form=form, image=image)
