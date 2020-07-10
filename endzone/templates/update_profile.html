@@ -1,0 +1,137 @@
+{% extends "layout.html"%}
+
+{% block content %}
+    <div id="container">
+        <!-- Use the main area to add the main content of the webpage -->
+        <div id=main>
+            <img src="{{ url_for('static', filename='soccerball.jpg') }}" alt="soccer ball" class="imgbanner">
+            <div class="profile-picture">
+                <img class="profile-img" src="{{ image }}">
+            </div>
+
+            <section class="onlyfeed">
+                <form method="POST" action="" enctype="multipart/form-data">
+                    {{ form.hidden_tag() }} <!-- executes forms (required) -->
+                    <div class="form-update">
+                        <legend class="form-box">Account Information</legend>
+
+                        <div class="form-group">
+                            {{ form.first_name.label(class="form-inputs-text") }}
+                        </div>
+
+                        <div class="form-group">
+                            {% if form.first_name.errors %}
+                                {{ form.first_name(class="form-inputs error-input") }}
+
+                                {% for error in form.first_name.errors %}
+                                    <span class="error-text"> {{ error }} </span>
+                                {% endfor %}
+                            {% else %}
+                                {{ form.first_name(class="form-inputs") }}
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form.last_name.label(class="form-inputs-text") }}
+                        </div>
+
+                        <div class="form-group">
+                            {% if form.last_name.errors %}
+                                {{ form.last_name(class="form-inputs error-input") }}
+
+                                {% for error in form.last_name.errors %}
+                                    <span class="error-text"> {{ error }} </span>
+                                {% endfor %}
+                            {% else %}
+                                {{ form.last_name(class="form-inputs") }}
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form.email.label(class="form-inputs-text") }}
+                        </div>
+
+                        <div class="form-group">
+                            {% if form.email.errors %}
+                                {{ form.email(class="form-inputs error-input") }}
+
+                                {% for error in form.email.errors %}
+                                    <span class="error-text"> {{ error }} </span>
+                                {% endfor %}
+                            {% else %}
+                                {{ form.email(class="form-inputs") }}
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form.high_school.label(class="form-inputs-text") }}
+                        </div>
+
+                        <div class="form-group">
+                            {% if form.high_school.errors %}
+                                {{ form.high_school(class="form-inputs error-input") }}
+
+                                {% for error in form.high_school.errors %}
+                                    <span class="error-text"> {{ error }} </span>
+                                {% endfor %}
+                            {% else %}
+                                {{ form.high_school(class="form-inputs") }}
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form.sport.label(class="form-inputs-text") }}
+                        </div>
+
+                        <div class="form-group">
+                            {% if form.sport.errors %}
+                                {{ form.sport(class="form-inputs error-input") }}
+
+                                {% for error in form.sport.errors %}
+                                    <span class="error-text"> {{ error }} </span>
+                                {% endfor %}
+                            {% else %}
+                                {{ form.sport(class="form-inputs") }}
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form.position.label(class="form-inputs-text") }}
+                        </div>
+
+                        <div class="form-group">
+                            {% if form.position.errors %}
+                                {{ form.position(class="form-inputs error-input") }}
+
+                                {% for error in form.position.errors %}
+                                    <span class="error-text"> {{ error }} </span>
+                                {% endfor %}
+                            {% else %}
+                                {{ form.position(class="form-inputs") }}
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form.select_file.label(class="form-inputs-text") }}
+                        </div>
+
+                        <div class="form-group">
+                            {% if form.select_file.errors %}
+                                {{ form.select_file(class="form-inputs error-input") }}
+
+                                {% for error in form.select_file.errors %}
+                                    <span class="error-text"> {{ error }} </span>
+                                {% endfor %}
+                            {% else %}
+                                {{ form.select_file(class="form-inputs") }}
+                            {% endif %}
+                        </div>
+                        <div class="form-group-submit">
+                            {{ form.submit() }}
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </div><!--End of main-->
+    </div>
+{% endblock %}
