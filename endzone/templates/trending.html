@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block content %}
+	<div id="container">
+	<!-- Use the main area to add the main content of the webpage -->
+	<div id=main>
+        <section id="userlinks">
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('feed') }}">Feed</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('event') }}">Events</a></li>
+                <li><a href="{{ url_for('home') }}">Friends</a></li>
+                <li><a href="{{ url_for('trending') }}">Trending</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="{{ url_for('profile') }}">Profile</a></li>
+            </ul>
+        </section>
+
+        <section class="rightcolumn">
+            <article class="post">
+                <p>SPONSORS 1</p>
+            </article>
+            <article class="post">
+                <p>SPONSORS 2</p>
+            </article>
+            <article class="post">
+                <p>SPONSORS 3</p>
+            </article>
+        </section>
+
+        <section class="feed">
+            <article class="post">
+                <div class="smallfakeimg">Pic</div>
+                <h2>TITLE HEADING</h2>
+                <h5>Title description, Dec 7, 2017</h5>
+                <div class="fakeimg">Image</div>
+                <p>Some text..</p>
+            </article>
+
+            <article class="post">
+                <div class="smallfakeimg">Pic</div>
+                <h2>TITLE HEADING</h2>
+                <h5>Title description, Dec 7, 2017</h5>
+                <p>Some text.. swgfvhasr';viohsargd 'SODhvoSDhv'SPODIhv' 'osIDh'osIDhv"SODhvs" 'sOPDIh'SODIhSOADIh'o SADh'opS Dhoh</p>
+            </article>
+
+            <article class="post">
+                <div class="smallfakeimg">Pic</div>
+                <h2>TITLE HEADING</h2>
+                <h5>Title description, Dec 7, 2017</h5>
+                <p>Some text.. swgfvhasr';viohsargd 'SODhvoSDhv'SPODIhv' 'osIDh'osIDhv"SODhvs" 'sOPDIh'SODIhSOADIh'o SADh'opS Dhoh</p>
+            </article>
+
+            <article class="post">
+                <div class="smallfakeimg">Pic</div>
+                <h2>TITLE HEADING</h2>
+                <h5>Title description, Dec 7, 2017</h5>
+                <div class="fakeimg">Image</div>
+                <p>Some text..</p>
+            </article>
+
+        </section>
+        </div><!--End of main-->
+
+        <!-- Use the footer area to add webpage footer content -->
+        <footer>
+            &copy; Copyright 2020. All Rights Reserved. <br>
+            <a href="mailto:help@cis350.com">help@cis350.com</a>
+        </footer>
+	</div><!--End of container-->
+{% endblock content %}
