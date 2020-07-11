@@ -57,6 +57,7 @@
                             </div>
                             <!-- end of last name -->
 
+                            <!-- Block for email -->
                             <div class="form-group">
                                 {{ form.email.label(class="form-inputs-text") }}
                             </div>
@@ -72,7 +73,9 @@
                                     {{ form.email(class="form-inputs") }}
                                 {% endif %}
                             </div>
+                            <!-- end of email -->
 
+                            <!-- Block for password -->
                             <div class="form-group">
                                 {{ form.password.label(class="form-inputs-text") }}
                             </div>
@@ -88,7 +91,9 @@
                                     {{ form.password(class="form-inputs") }}
                                 {% endif %}
                             </div>
+                            <!-- end of password -->
 
+                            <!-- Block for confirm password -->
                             <div class="form-group">
                                 {{ form.confirm_password.label(class="form-inputs-text") }}
                             </div>
@@ -104,6 +109,61 @@
                                     {{ form.confirm_password(class="form-inputs") }}
                                 {% endif %}
                             </div>
+                            <!-- end of confirm password -->
+
+                            <!-- Block for High School -->
+                            <div class="form-group">
+                                {{ form.high_school.label(class="form-inputs-text") }}
+                            </div>
+
+                            <div class="form-group">
+                                {% if form.high_school.errors %}
+                                    {{ form.high_school(class="form-inputs error-input") }}
+
+                                    {% for error in form.high_school.errors %}
+                                        <span class="error-text"> {{ error }} </span>
+                                    {% endfor %}
+                                {% else %}
+                                    {{ form.high_school(class="form-inputs") }}
+                                {% endif %}
+                            </div>
+                            <!-- end of high school -->
+
+                            <!-- block for sport -->
+                            <div class="form-group">
+                                {{ form.sport.label(class="form-inputs-text") }}
+                            </div>
+
+                            <div class="form-group">
+                                {% if form.sport.errors %}
+                                    {{ form.sport(class="form-inputs error-input") }}
+
+                                    {% for error in form.sport.errors %}
+                                        <span class="error-text"> {{ error }} </span>
+                                    {% endfor %}
+                                {% else %}
+                                    {{ form.sport(class="form-inputs") }}
+                                {% endif %}
+                            </div>
+                            <!-- end of sport -->
+
+                            <!-- Block for position -->
+                            <div class="form-group">
+                                {{ form.position.label(class="form-inputs-text") }}
+                            </div>
+
+                            <div class="form-group">
+                                {% if form.position.errors %}
+                                    {{ form.position(class="form-inputs error-input") }}
+
+                                    {% for error in form.position.errors %}
+                                        <span class="error-text"> {{ error }} </span>
+                                    {% endfor %}
+                                {% else %}
+                                    {{ form.position(class="form-inputs") }}
+                                {% endif %}
+                            </div>
+                            <!-- end of position -->
 
                             <div class="form-group-submit">
                                 {{ form.submit(class="form-inputs-submit-signup") }}

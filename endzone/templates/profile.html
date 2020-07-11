@@ -35,9 +35,10 @@
 
 			<article class="post">
 				<h2>BIO</h2>
-				<p>First Name: {{ current_user.first_name }}</p>
-				<p>Last Name: {{ current_user.last_name }}</p>
-				<p> Highschool : sad</p>
+				<p>{{ current_user.first_name }} {{ current_user.last_name }}</p>
+				<p> Highschool : {{ current_user.high_school }}</p>
+                <p> Sport: {{ current_user.sport }} </p>
+                <p> Position: {{ current_user.position }}</p>
 			</article>
 
 			{% for post in posts %}

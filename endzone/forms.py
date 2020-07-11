@@ -7,11 +7,16 @@ from flask_login import current_user
 
 
 class RegistrationForm(FlaskForm):
-    first_name = StringField('First name', validators=[DataRequired(), Length(min=2, max=20)])
-    last_name = StringField('Last name', validators=[DataRequired(), Length(min=2, max=20)])
-    email = StringField('Email', validators=[DataRequired(), Email()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    confirm_password = PasswordField('Confirm password', validators=[DataRequired(), EqualTo('password')])
+    first_name = StringField('First name*', validators=[DataRequired(), Length(min=2, max=20)])
+    last_name = StringField('Last name*', validators=[DataRequired(), Length(min=2, max=20)])
+    email = StringField('Email*', validators=[DataRequired(), Email()])
+    password = PasswordField('Password*', validators=[DataRequired()])
+    confirm_password = PasswordField('Confirm password*', validators=[DataRequired(), EqualTo('password')])
+
+    # New Stuff Added ------
+    high_school = StringField('Current school', validators=[])
+    sport = StringField('Sport', validators=[])
+    position = StringField('Position', validators=[])
     submit = SubmitField('Sign up')
 
     # Checks to see if email is already within database

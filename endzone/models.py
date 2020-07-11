@@ -17,6 +17,12 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(60), nullable=False)
     posts = db.relationship('Post', backref='author', lazy=True)
 
+    # new stuff added
+    high_school = db.Column(db.String(20))
+    sport = db.Column(db.String(20), nullable=False)
+    position = db.Column(db.String(20), nullable=False)
+    # --------------
+
     def __repr__(self):  # how object is printed to console
         return f"User('{self.first_name}', '{self.last_name}', '{self.email}', '{self.img_file}')"
 

@@ -19,7 +19,7 @@ def home():
         # encrypts user's password
         encrypt_pwd = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
         # creates user
-        user = User(first_name=form.first_name.data, last_name=form.last_name.data, email=form.email.data, password=encrypt_pwd)
+        user = User(first_name=form.first_name.data, last_name=form.last_name.data, email=form.email.data, password=encrypt_pwd, high_school=form.high_school.data, sport=form.sport.data, position=form.position.data)
         # Stages user
         db.session.add(user)
         # Commits user into database
@@ -134,6 +134,24 @@ def post(post_id):
     return render_template('post.html', title=post.title, post=post)
 
 
+@app.route("/event")
+@login_required
+def event():
+    return render_template('event.html')
+
+
+@app.route("/trending")
+@login_required
+def trending():
+    return render_template('trending.html')
+
+
+@app.route("/team")
+@login_required
+def team():
+    return render_template('team.html')
+
+
 @app.route("/post/<int:post_id>/update", methods=['GET', 'POST'])
 @login_required
 def update_post(post_id):
@@ -179,6 +197,9 @@ def update_profile():
             current_user.img_file = profile_picture
         current_user.first_name = form.first_name.data
         current_user.last_name = form.last_name.data
+        current_user.high_school = form.high_school.data
+        current_user.sport = form.sport.data
+        current_user.position = form.position.data
         db.session.commit()
         flash('Your profile has been updated.', 'success')
         return redirect(url_for('profile'))
@@ -186,5 +207,10 @@ def update_profile():
         form.first_name.data = current_user.first_name
         form.last_name.data = current_user.last_name
         form.email.data = current_user.email
+        form.high_school.data = current_user.high_school
+        form.sport.data = current_user.sport
+        form.position.data = current_user.position
+
     image = url_for('static', filename='pics/' + current_user.img_file)
     return render_template('update_profile.html', form=form, image=image)
+

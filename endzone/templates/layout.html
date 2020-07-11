@@ -35,19 +35,19 @@ Date: June 27,2020
                             <li><a href="{{ url_for('home') }}">Home</a></li>
                             <li><a href="{{ url_for('feed') }}">Feed</a></li>
                             <li><a href="{{ url_for('about') }}">About</a></li>
-                            <li><a href="event.html">Events</a></li>
+                            <li><a href="{{ url_for('event') }}">Events</a></li>
                             <li><a href="friends.html">Friends</a></li>
-                            <li><a href="trending.html">Trending</a></li>
-                            <li><a href="team.html">Team</a></li>
+                            <li><a href="{{ url_for('trending') }}">Trending</a></li>
+                            <li><a href="{{ url_for('team') }}">Team</a></li>
                             <li><a href="{{ url_for('profile') }}">Profile</a></li>
                         {% else %}
                             <li><a href="{{ url_for('home') }}">Home</a></li>
                             <li><a href="{{ url_for('feed') }}">Feed</a></li>
                             <li><a href="{{ url_for('about') }}">About</a></li>
-                            <li><a href="event.html">Events</a></li>
+                            <li><a href="{{ url_for('event') }}">Events</a></li>
                             <li><a href="friends.html">Friends</a></li>
-                            <li><a href="trending.html">Trending</a></li>
-                            <li><a href="team.html">Team</a></li>
+                            <li><a href="{{ url_for('trending') }}">Trending</a></li>
+                            <li><a href="{{ url_for('team') }}">Team</a></li>
                             <li><a href="{{ url_for('profile') }}">Profile</a></li>
                             <li><a href="{{ url_for('login') }}">Login</a></li>
                         {% endif %}
