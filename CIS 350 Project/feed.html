@@ -6,7 +6,7 @@ Date: June 27,2020
 <html lang="en">
 <head>
 	<link rel="stylesheet" href="css/styles.css">
-	<title></title>
+	<title>Feed - ENDZONE</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -16,32 +16,27 @@ Date: June 27,2020
 
 	<!--Use this area for website name or logo-->
 	<header>
-			<!-- <a href="index.html"><img src="images/ez.png" alt="ez logo" class="logo"></a> -->
-		<a href="index.html"><img src="images/endzone.png" alt="endzone logo" class="logo"></a>
-		<!-- <a href="index.html"><img src="images/spartan.png" alt="spartan logo" class="logo"></a> -->
-			<!--Use the nav area to add hyperlinks to the other pages within the website-->
-	<nav>
-		<ul>
-			<li><a href="index.html">Home</a></li>
-			<li><a href="feed.html">Feed</a></li>
-			<li><a href="about.html">About</a></li>
-			<li><a href="event.html">Events</a></li>
-			<li><a href="friends.html">Friends</a></li>
-			<li><a href="trending.html">Trending</a></li>
-			<li><a href="team.html">Team</a></li>
-			<li><a href="profile.html">Profile</a></li>
-		</ul>
-	</nav>
-
-	
+		<a href="index.html"><img src="images/ez.png" alt="ez logo" class="logo mobile"></a>
+		<a href="index.html"><img src="images/endzone.png" alt="endzone logo" class="logo desktop"></a>
+		<!--<a href="index.html"><img src="images/spartan.png" alt="spartan logo" class="logo"></a>-->
+		<!--Use the nav area to add hyperlinks to the other pages within the website-->
+		<nav>
+			<ul>
+				<li><a href="feed.html">Feed</a></li>
+				<li class="desktop"><a href="about.html">About</a></li>
+				<li class="desktop"><a href="friends.html">Friends</a></li>
+				<li><a href="trending.html">Trending</a></li>
+				<li><a href="profile.html">Profile</a></li>
+			</ul>
+		</nav>
 	</header>
 	
 
 	<!-- Use the main area to add the main content of the webpage -->
 	<div id=main>
-		<section id="userlinks">
+		<div id="userlinks" class="desktop">
 			<ul>
-				<li><a href="index.html">Home</a></li>
+				<li><a href="index.html">Sign out</a></li>
 				<li><a href="feed.html">Feed</a></li>
 				<li><a href="about.html">About</a></li>
 				<li><a href="event.html">Events</a></li>
@@ -50,87 +45,96 @@ Date: June 27,2020
 				<li><a href="team.html">Team</a></li>
 			<li><a href="profile.html">Profile</a></li>
 			</ul>
-		</section>
+		</div><!--End of userlinks-->
 		
 		
-		<section class="rightcolumn">
+		<div class="rightcolumn desktop">
 			<article class="post">
-				<p>SPONSORS 1</p>
+				<h2>Nike</h2>
+				<a href="https://www.nike.com/">Just Do It.</a>
+				<p>Deals on the best shoes.</p>
 			</article>
 			<article class="post">
-				<p>SPONSORS 2</p>
+				<h2>Adidas</h2>
+				<a href="https://www.adidas.com/us">Impossible is Nothing.</a>
+				<p>Sale on athletic apparel.</p>
 			</article>
 			<article class="post">
-				<p>SPONSORS 3</p>
-			</article>
-			
-			<article class="post">
-				<div class="smallfakeimg">Pic</div>
-				<h2>TITLE HEADING</h2>
-				<h5>Title description, Dec 7, 2017</h5>
-				<p>Some text.. swgfvhasr';viohsargd 'SODhvoSDhv'SPODIhv' 'osIDh'osIDhv"SODhvs" 'sOPDIh'SODIhSOADIh'o SADh'opS Dhoh</p>
-			</article>
-			
-			<article class="post">
-				<div class="smallfakeimg">Pic</div>
-				<h2>TITLE HEADING</h2>
-				<h5>Title description, Dec 7, 2017</h5>
-				<p>Some text..</p>
+				<h2>Lululemon</h2>
+				<a href="https://shop.lululemon.com/">This is yoga.</a>
+				<p>Helping you stay fit.</p>
 			</article>
 			
 			<article class="post">
-				<div class="smallfakeimg">Pic</div>
-				<h2>TITLE HEADING</h2>
-				<h5>Title description, Dec 7, 2017</h5>
-				<p>Some text..</p>
+				<img src="images/bballplayer.jpg" alt="basketball player" class="feedprofilepic">
+				<h2>Corbin Lane</h2>
+				<h5>December 13th, 2019</h5>
+				<p>Excited to win this game tonight!</p>
 			</article>
 			
 			<article class="post">
-				<div class="smallfakeimg">Pic</div>
-				<h2>TITLE HEADING</h2>
-				<h5>Title description, Dec 7, 2017</h5>
-				<p>Some text.. swgfvhasr';viohsargd 'SODhvoSDhv'SPODIhv' 'osIDh'osIDhv"SODhvs" 'sOPDIh'SODIhSOADIh'o SADh'opS Dhoh</p>
+				<img src="images/man_athlete_two.jpg" alt="football player" class="feedprofilepic">
+				<h2>James Blue</h2>
+				<h5>September 15th, 2019</h5>
+				<p>Putting in work!</p>
 			</article>
-		</section>
+			
+			<article class="post">bball_coach.jpg
+				<img src="images/bball_coach.jpg" alt="basketball coach" class="feedprofilepic">
+				<h2>Dante Simmons</h2>
+				<h5>April 5th, 2020</h5>
+				<p>Can't wait until April tenth! It will be my 15th year aniversary of when I open up a basketball camp for the youth.</p>
+			</article>
+			
+			<article class="post">
+			<img src="images/woman_soccer_player.jpg" alt="soccer coach" class="feedprofilepic">
+				<h2>Laura Hill</h2>
+				<h5>May 9th, 2020</h5>
+				<p>My girls are going to compete at State in the soccer tournament!</p>
+			</article>
+		</div><!--End of rightcolumn-->
 		
-		<section class="feed">
+		<div class="feed">
 			<article class="post">
-				<div class="smallfakeimg">Pic</div>
-				<h2>TITLE HEADING</h2>
-				<h5>Title description, Dec 7, 2017</h5>
-				<div class="fakeimg">Image</div>
-				<p>Some text..</p>
+				<img src="images/malesoccerplayer.jpg" alt="soccer" class="feedprofilepic">
+				<h2>Josh Smith</h2>
+				<h5>July 7th, 2020</h5>
+				<p>Just hit this crazy goal!</p>
+				<img src="images/soccerkick.jpeg" alt="soccer" class="feedpic">
 			</article>
 			
 			<article class="post">
-				<div class="smallfakeimg">Pic</div>
-				<h2>TITLE HEADING</h2>
-				<h5>Title description, Dec 7, 2017</h5>
-				<p>Some text.. swgfvhasr';viohsargd 'SODhvoSDhv'SPODIhv' 'osIDh'osIDhv"SODhvs" 'sOPDIh'SODIhSOADIh'o SADh'opS Dhoh</p>
+				<img src="images/man_athlete_one.jpg" alt="soccer" class="feedprofilepic">
+				<h2>Ollie Ellis</h2>
+				<h5>July 6th, 2020</h5>
+				<p>Anyone seen the game last night?</p>
 			</article>
 			
 			<article class="post">
-				<div class="smallfakeimg">Pic</div>
-				<h2>TITLE HEADING</h2>
-				<h5>Title description, Dec 7, 2017</h5>
-				<p>Some text.. swgfvhasr';viohsargd 'SODhvoSDhv'SPODIhv' 'osIDh'osIDhv"SODhvs" 'sOPDIh'SODIhSOADIh'o SADh'opS Dhoh</p>
+				<img src="images/woman_athlete_two.jpg" alt="soccer" class="feedprofilepic">
+				<h2>Katy Pickett</h2>
+				<h5>July 4th, 2020</h5>
+				<p>Happy Independence Day!</p>
 			</article>
 			
 			<article class="post">
-				<div class="smallfakeimg">Pic</div>
-				<h2>TITLE HEADING</h2>
-				<h5>Title description, Dec 7, 2017</h5>
-				<div class="fakeimg">Image</div>
-				<p>Some text..</p>
+				<img src="images/woman_athlete_one.jpg" alt="soccer" class="feedprofilepic">
+				<h2>Alea Rose</h2>
+				<h5>July 4th, 2020</h5>
+				<p>Happy 4th of July!</p>
+				<video class="feedvideo" controls>
+					<source src="media/fireworks.mp4" type="video/mp4">
+					Your browser does not support the video tag.
+				</video>
 			</article>
 			
-		</section>
+		</div><!--End of feed-->
 	</div><!--End of main-->
 	
 	<!-- Use the footer area to add webpage footer content -->
 	<footer>
 		&copy; Copyright 2020. All Rights Reserved. <br>
-		<a href="mailto:help@cis350.com">help@cis350.com</a>
+		<a href="mailto:help@endzone.com">help@endzone.com</a>
 	</footer>
 	</div><!--End of container-->
 

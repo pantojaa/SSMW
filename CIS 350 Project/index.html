@@ -6,7 +6,7 @@ Date: June 27,2020
 <html lang="en">
 <head>
 	<link rel="stylesheet" href="css/styles.css">
-	<title></title>
+	<title>Home- ENDZONE</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -16,29 +16,28 @@ Date: June 27,2020
 
 	<!--Use this area for website name or logo-->
 	<header>
-		<!-- <a href="index.html"><img src="images/ez.png" alt="ez logo" class="logo"></a> -->
-		<!-- <a href="index.html"><img src="images/endzone.png" alt="endzone logo" class="logo"></a> -->
-		<a href="index.html"><img src="images/spartan.png" alt="spartan logo" class="logo"></a>
-			<!--Use the nav area to add hyperlinks to the other pages within the website-->
-	<nav>
-		<ul>
-			<li><a href="index.html">Home</a></li>
-			<li><a href="feed.html">Feed</a></li>
-			<li><a href="about.html">About</a></li>
-			<li><a href="event.html">Events</a></li>
-			<li><a href="friends.html">Friends</a></li>
-			<li><a href="trending.html">Trending</a></li>
-			<li><a href="team.html">Team</a></li>
-			<li><a href="profile.html">Profile</a></li>
-		</ul>
-	</nav>
-	
+		<a href="index.html"><img src="images/ez.png" alt="ez logo" class="logo mobile"></a>
+		<a href="index.html"><img src="images/endzone.png" alt="endzone logo" class="logo desktop"></a>
+		<!--<a href="index.html"><img src="images/spartan.png" alt="spartan logo" class="logo"></a>-->
+		<!--Use the nav area to add hyperlinks to the other pages within the website-->
+		<nav>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="feed.html">Feed</a></li>
+				<li><a href="about.html">About</a></li>
+				<li><a href="event.html">Events</a></li>
+				<li><a href="friends.html">Friends</a></li>
+				<li><a href="trending.html">Trending</a></li>
+				<li><a href="team.html">Team</a></li>
+				<li><a href="profile.html">Profile</a></li>
+			</ul>
+		</nav>
 	</header>
 	
 
 	<!-- Use the main area to add the main content of the webpage -->
 	<div id=main>
-		<video id="videobanner" alt="sports video"loop autoplay muted>
+		<video id="videobanner" loop autoplay muted>
 			<source src="media/sports_montage.mp4" type="video/mp4">
 			Your browser does not support the video tag.
 		</video>
@@ -47,14 +46,205 @@ Date: June 27,2020
 				<li><a href="#join">Join us</a></li>
 			</ul>
 		</div><!--End of homebutton-->
-		<section id="join">
+		<div id="join">
 			<article>
+			<h2>Join us!</h2>
 				<p>Here is where the user would use a form to sign up</p>
+				
+				<form><!-- Start Form -->
+					<label for="fName">First Name:</label>
+					<input type="text" name="fName" id="fName" required>
+					
+					<label for="lName">Last Name:</label>
+					<input type="text" name="1Name" id="lName" required>
+					
+					<label for="email">Email</label>
+					<input type="email" name="email" id="email" required>
+					
+					<label for="phone">Phone</label>
+					<input type="tel" name="phone" id="phone" required>
+					
+					<label for="password">Password</label>
+					<input type="password" name="password" id="password" required>
+					
+					<p>Birthday</p>				<!--maybe shouldn't be a label-->
+					<select name="bmonth" id="bmonth" required>
+						<option value="">Month</option>
+						<option value="jan">January</option>
+						<option value="feb">February</option>
+						<option value="mar">March</option>
+						<option value="apr">April</option>
+						<option value="may">May</option>
+						<option value="jun">June</option>
+						<option value="jul">July</option>
+						<option value="aug">August</option>
+						<option value="sep">September</option>
+						<option value="oct">October</option>
+						<option value="nov">November</option>
+						<option value="dec">December</option>
+					</select>
+					
+					<select name="bday" id="bday" required>
+						<option value="">Day</option>
+						<option value="day1">01</option>
+						<option value="day2">02</option>
+						<option value="day3">03</option>
+						<option value="day4">04</option>
+						<option value="day5">05</option>
+						<option value="day6">06</option>
+						<option value="day7">07</option>
+						<option value="day8">08</option>
+						<option value="day9">09</option>
+						<option value="day10">10</option>
+						<option value="day11">11</option>
+						<option value="day12">12</option>
+						<option value="day13">13</option>
+						<option value="day14">14</option>
+						<option value="day15">15</option>
+						<option value="day16">16</option>
+						<option value="day17">17</option>
+						<option value="day18">18</option>
+						<option value="day19">19</option>
+						<option value="day20">20</option>
+						<option value="day21">21</option>
+						<option value="day22">22</option>
+						<option value="day23">23</option>
+						<option value="day24">24</option>
+						<option value="day25">25</option>
+						<option value="day26">26</option>
+						<option value="day27">27</option>
+						<option value="day28">28</option>
+						<option value="day29">29</option>
+						<option value="day30">30</option>
+						<option value="day31">31</option>
+					</select>
+					<select name="byear" id="byear" required>
+						<option value="">Year</option>
+						<option value="y2020">2020</option>
+						<option value="y2019">2019</option>
+						<option value="y2018">2018</option>
+						<option value="y2017">2017</option>
+						<option value="y2016">2016</option>
+						<option value="y2015">2015</option>
+						<option value="y2014">2014</option>
+						<option value="y2013">2013</option>
+						<option value="y2012">2012</option>
+						<option value="y2011">2011</option>
+						<option value="y2010">2010</option>
+						<option value="y2009">2009</option>
+						<option value="y2008">2008</option>
+						<option value="y2007">2007</option>
+						<option value="y2006">2006</option>
+						<option value="y2005">2005</option>
+						<option value="y2004">2004</option>
+						<option value="y2003">2003</option>
+						<option value="y2002">2002</option>
+						<option value="y2001">2001</option>
+						<option value="y2000">2000</option>
+						<option value="y1999">1999</option>
+						<option value="y1998">1998</option>
+						<option value="y1997">1997</option>
+						<option value="y1996">1996</option>
+						<option value="y1995">1995</option>
+						<option value="y1994">1994</option>
+						<option value="y1993">1993</option>
+						<option value="y1992">1992</option>
+						<option value="y1991">1991</option>
+						<option value="y1990">1990</option>
+						<option value="y1989">1989</option>
+						<option value="y1988">1988</option>
+						<option value="y1987">1987</option>
+						<option value="y1986">1986</option>
+						<option value="y1985">1985</option>
+						<option value="y1984">1984</option>
+						<option value="y1983">1983</option>
+						<option value="y1982">1982</option>
+						<option value="y1981">1981</option>
+						<option value="y1980">1980</option>
+						<option value="y1979">1979</option>
+						<option value="y1978">1978</option>
+						<option value="y1977">1977</option>
+						<option value="y1976">1976</option>
+						<option value="y1975">1975</option>
+						<option value="y1974">1974</option>
+						<option value="y1973">1973</option>
+						<option value="y1972">1972</option>
+						<option value="y1971">1971</option>
+						<option value="y1970">1970</option>
+						<option value="y1969">1969</option>
+						<option value="y1968">1968</option>
+						<option value="y1967">1967</option>
+						<option value="y1966">1966</option>
+						<option value="y1965">1965</option>
+						<option value="y1964">1964</option>
+						<option value="y1963">1963</option>
+						<option value="y1962">1962</option>
+						<option value="y1961">1961</option>
+						<option value="y1960">1960</option>
+						<option value="y1959">1959</option>
+						<option value="y1958">1958</option>
+						<option value="y1957">1957</option>
+						<option value="y1956">1956</option>
+						<option value="y1955">1955</option>
+						<option value="y1954">1954</option>
+						<option value="y1953">1953</option>
+						<option value="y1952">1952</option>
+						<option value="y1951">1951</option>
+						<option value="y1950">1950</option>
+						<option value="y1949">1949</option>
+						<option value="y1948">1948</option>
+						<option value="y1947">1947</option>
+						<option value="y1946">1946</option>
+						<option value="y1945">1945</option>
+						<option value="y1944">1944</option>
+						<option value="y1943">1943</option>
+						<option value="y1942">1942</option>
+						<option value="y1941">1941</option>
+						<option value="y1940">1940</option>
+						<option value="y1939">1939</option>
+						<option value="y1938">1938</option>
+						<option value="y1937">1937</option>
+						<option value="y1936">1936</option>
+						<option value="y1935">1935</option>
+						<option value="y1934">1934</option>
+						<option value="y1933">1933</option>
+						<option value="y1932">1932</option>
+						<option value="y1931">1931</option>
+						<option value="y1930">1930</option>
+						<option value="y1929">1929</option>
+						<option value="y1928">1928</option>
+						<option value="y1927">1927</option>
+						<option value="y1926">1926</option>
+						<option value="y1925">1925</option>
+						<option value="y1924">1924</option>
+						<option value="y1923">1923</option>
+						<option value="y1922">1922</option>
+						<option value="y1921">1921</option>
+						<option value="y1920">1920</option>
+					</select>
+					
+					
+					<p>Gender</p> <!--change to legend?-->
+					<label for="male">Male</label>
+					<input type="radio" name="gender" id="male" value="male" class="chkbx">
+					
+					<label for="female">Female</label>
+					<input type="radio" name="gender" id="female" value="female" class="chkbx">
+					
+					<label for="other">Other</label>
+					<input type="radio" name="gender" id="other" value="other" class="chkbx">
+					
+					
+					
+					<input type="submit" id="submit" value="Submit" class="btn">
+					<input type="reset" id="reset" value="Reset Form" class="btn">
+				</form>
+				
 				<aside>
 				<p>This is a social media website!</p>
 				</aside>
 			</article>
-		</section><!--End of join-->
+		</div><!--End of join-->
 			
 		
 	</div><!--End of main-->
@@ -62,7 +252,7 @@ Date: June 27,2020
 	<!-- Use the footer area to add webpage footer content -->
 	<footer>
 		&copy; Copyright 2020. All Rights Reserved. <br>
-		<a href="mailto:help@cis350.com">help@cis350.com</a>
+		<a href="mailto:help@endzone.com">help@endzone.com</a>
 	</footer>
 	</div><!--End of container-->
 

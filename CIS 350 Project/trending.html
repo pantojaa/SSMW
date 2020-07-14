@@ -6,7 +6,7 @@ Date: June 27,2020
 <html lang="en">
 <head>
 	<link rel="stylesheet" href="css/styles.css">
-	<title></title>
+	<title>Trending - ENDZONE</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -16,30 +16,11 @@ Date: June 27,2020
 
 	<!--Use this area for website name or logo-->
 	<header>
-			<!-- <a href="index.html"><img src="images/ez.png" alt="ez logo" class="logo"></a> -->
-		<a href="index.html"><img src="images/endzone.png" alt="endzone logo" class="logo"></a>
-		<!-- <a href="index.html"><img src="images/spartan.png" alt="spartan logo" class="logo"></a> -->
-			<!--Use the nav area to add hyperlinks to the other pages within the website-->
-	<nav>
-		<ul>
-			<li><a href="index.html">Home</a></li>
-			<li><a href="feed.html">Feed</a></li>
-			<li><a href="about.html">About</a></li>
-			<li><a href="event.html">Events</a></li>
-			<li><a href="friends.html">Friends</a></li>
-			<li><a href="trending.html">Trending</a></li>
-			<li><a href="team.html">Team</a></li>
-			<li><a href="profile.html">Profile</a></li>
-		</ul>
-	</nav>
-
-	
-	</header>
-	
-
-	<!-- Use the main area to add the main content of the webpage -->
-	<div id=main>
-		<section id="userlinks">
+		<a href="index.html"><img src="images/ez.png" alt="ez logo" class="logo mobile"></a>
+		<a href="index.html"><img src="images/endzone.png" alt="endzone logo" class="logo desktop"></a>
+		<!--<a href="index.html"><img src="images/spartan.png" alt="spartan logo" class="logo"></a>-->
+		<!--Use the nav area to add hyperlinks to the other pages within the website-->
+		<nav>
 			<ul>
 				<li><a href="index.html">Home</a></li>
 				<li><a href="feed.html">Feed</a></li>
@@ -50,59 +31,80 @@ Date: June 27,2020
 				<li><a href="team.html">Team</a></li>
 				<li><a href="profile.html">Profile</a></li>
 			</ul>
-		</section>
+		</nav>
+	</header>
+	
+
+	<!-- Use the main area to add the main content of the webpage -->
+	<div id=main>
+		<div id="userlinks" class="desktop">
+			<ul>
+				<li><a href="index.html">Sign out</a></li>
+				<li><a href="feed.html">Feed</a></li>
+				<li><a href="about.html">About</a></li>
+				<li><a href="event.html">Events</a></li>
+				<li><a href="friends.html">Friends</a></li>
+				<li><a href="trending.html">Trending</a></li>
+				<li><a href="team.html">Team</a></li>
+				<li><a href="profile.html">Profile</a></li>
+			</ul>
+		</div><!--End of userlinks-->
 		
 		
-		<section class="rightcolumn">
+		<div class="rightcolumn desktop">
 			<article class="post">
-				<p>SPONSORS 1</p>
+				<h2>Under Armour</h2>
+				<a href="https://www.underarmour.com/en-us">Protect this house.</a>
+				<p>Get the best running shoes here</p>
 			</article>
 			<article class="post">
-				<p>SPONSORS 2</p>
+				<h2>Columbia Sportswear</h2>
+				<a href="https://www.columbia.com/home">Built for Adventure.</a>
+				<p>Deals on the best shoes.</p>
 			</article>
-			<article class="post">
-				<p>SPONSORS 3</p>
-			</article>
-		</section>
+		</div><!--End of rightcolumn-->
 		
-		<section class="feed">
+		<div class="feed">
 			<article class="post">
-				<div class="smallfakeimg">Pic</div>
-				<h2>TITLE HEADING</h2>
-				<h5>Title description, Dec 7, 2017</h5>
-				<div class="fakeimg">Image</div>
-				<p>Some text..</p>
+				<img src="images/bballplayer.jpg" alt="basketball player" class="feedprofilepic">
+				<h2>Corbin Lane</h2>
+				<h5>December 13th, 2019</h5>
+				<p>Excited to win this game tonight!</p>
+				<video class="feedvideo" controls>
+					<source src="media/basketball_warmup.mp4" type="video/mp4">
+					Your browser does not support the video tag.
+				</video>
 			</article>
 			
 			<article class="post">
-				<div class="smallfakeimg">Pic</div>
-				<h2>TITLE HEADING</h2>
-				<h5>Title description, Dec 7, 2017</h5>
-				<p>Some text.. swgfvhasr';viohsargd 'SODhvoSDhv'SPODIhv' 'osIDh'osIDhv"SODhvs" 'sOPDIh'SODIhSOADIh'o SADh'opS Dhoh</p>
+				<img src="images/man_athlete_two.jpg" alt="football player" class="feedprofilepic">
+				<h2>James Blue</h2>
+				<h5>September 15th, 2019</h5>
+				<img src="images/man_athlete_two.jpg" alt="football player" class="feedpic">
+				<p>Putting in work!</p>
+			</article>
+			
+			<article class="post">bball_coach.jpg
+				<img src="images/bball_coach.jpg" alt="basketball coach" class="feedprofilepic">
+				<h2>Dante Simmons</h2>
+				<h5>April 5th, 2020</h5>
+				<p>Can't wait until April tenth! It will be my 15th year aniversary of when I open up a basketball camp for the youth.</p>
 			</article>
 			
 			<article class="post">
-				<div class="smallfakeimg">Pic</div>
-				<h2>TITLE HEADING</h2>
-				<h5>Title description, Dec 7, 2017</h5>
-				<p>Some text.. swgfvhasr';viohsargd 'SODhvoSDhv'SPODIhv' 'osIDh'osIDhv"SODhvs" 'sOPDIh'SODIhSOADIh'o SADh'opS Dhoh</p>
+			<img src="images/woman_soccer_player.jpg" alt="soccer coach" class="feedprofilepic">
+				<h2>Laura Hill</h2>
+				<h5>May 9th, 2020</h5>
+				<p>My girls are going to compete at State in the soccer tournament!</p>
 			</article>
 			
-			<article class="post">
-				<div class="smallfakeimg">Pic</div>
-				<h2>TITLE HEADING</h2>
-				<h5>Title description, Dec 7, 2017</h5>
-				<div class="fakeimg">Image</div>
-				<p>Some text..</p>
-			</article>
-			
-		</section>
+		</div><!--End of feed-->
 	</div><!--End of main-->
 	
 	<!-- Use the footer area to add webpage footer content -->
 	<footer>
 		&copy; Copyright 2020. All Rights Reserved. <br>
-		<a href="mailto:help@cis350.com">help@cis350.com</a>
+		<a href="mailto:help@endzone.com">help@endzone.com</a>
 	</footer>
 	</div><!--End of container-->
 
