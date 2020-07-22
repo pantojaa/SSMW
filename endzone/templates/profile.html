@@ -35,17 +35,18 @@
                 <div>
                     <div class="post-misc">
                         <ul class="button-side">
-                            <li> <a href="{{ url_for('update_profile') }}"> link</a> </li>
+                            <li> <a href="{{ url_for('update_profile') }}"> {{ form.update_profile }}</a> </li>
                         </ul>
                     </div>
                 </div>
-				<h1>{{ current_user.first_name }} {{ current_user.last_name }}</h1>
-                <p> Age: {{ current_user.age }}</p>
-                <p> Birthday: {{ current_user.birth_month }} {{ current_user.birth_date }}, {{ current_user.birth_year }}</p>
-                <p> Gender: {{ current_user.gender }}</p>
-				<p> Current School : {{ current_user.high_school }}</p>
-                <p> Sport: {{ current_user.sport }} </p>
-                <p> Position: {{ current_user.position }}</p>
+				<h1 style="color: #D1080C">{{ current_user.first_name }} {{ current_user.last_name }}</h1>
+                <p> About me: <i>{{ current_user.about }} </i> </p>
+                <p> Age: <i>{{ current_user.age }} </i> </p>
+                <p> Birthday: <i> {{ current_user.birth_month }} {{ current_user.birth_date }}, {{ current_user.birth_year }} </i> </p>
+                <p> Gender: <i> {{ current_user.gender }} </i> </p>
+                <p> Current School : <i> {{ current_user.high_school }} </i> </p>
+                <p> Sport: <i> {{ current_user.sport }} </i> </p>
+                <p> Position: <i> {{ current_user.position }} </i> </p>
 
 			</article>
             <!-- end of bio -->

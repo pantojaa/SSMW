@@ -47,10 +47,11 @@ class UpdateProfileForm(FlaskForm):
     first_name = StringField('First name', validators=[DataRequired(), Length(min=2, max=20)])
     last_name = StringField('Last name', validators=[DataRequired(), Length(min=2, max=20)])
     email = StringField('Email', validators=[DataRequired(), Email()])
+    bio = TextAreaField('About me')
     high_school = StringField('Current school', validators=[])
     sport = StringField('Sport', validators=[])
     position = StringField('Position', validators=[])
-    select_file = FileField('Update profile picture', validators=[FileAllowed(['jpeg', 'jpg', 'png', 'mp4'])])
+    select_file = FileField('Update profile picture', validators=[FileAllowed(['jpeg', 'jpg', 'png'])])
     submit = SubmitField('Save changes')
     update_profile = SubmitField('Update Profile')
 

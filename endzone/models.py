@@ -23,7 +23,8 @@ class User(db.Model, UserMixin):
     birth_date = db.Column(db.String(20), nullable=False)
     birth_month = db.Column(db.String(20), nullable=False)
     birth_year = db.Column(db.String(20), nullable=False)
-    age = db.Column(db.Integer)
+    age = db.Column(db.Integer, nullable=False)
+    about = db.Column(db.String(300), nullable=False, default=' ')
     # --------------
 
     def __repr__(self):  # how object is printed to console

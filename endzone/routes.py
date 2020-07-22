@@ -230,6 +230,7 @@ def update_profile():
         current_user.high_school = form.high_school.data
         current_user.sport = form.sport.data
         current_user.position = form.position.data
+        current_user.about = form.bio.data
         db.session.commit()
         flash('Your profile has been updated.', 'success')
         return redirect(url_for('profile'))
@@ -240,6 +241,7 @@ def update_profile():
         form.high_school.data = current_user.high_school
         form.sport.data = current_user.sport
         form.position.data = current_user.position
+        form.bio.data = current_user.about
 
     image = url_for('static', filename='pics/' + current_user.img_file)
     return render_template('update_profile.html', form=form, image=image)
