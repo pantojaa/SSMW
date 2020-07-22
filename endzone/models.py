@@ -16,11 +16,14 @@ class User(db.Model, UserMixin):
     img_file = db.Column(db.String(20), nullable=False, default='default.png')
     password = db.Column(db.String(60), nullable=False)
     posts = db.relationship('Post', backref='author', lazy=True)
-
-    # new stuff added
+    gender = db.Column(db.String(20), nullable=False)
     high_school = db.Column(db.String(20))
     sport = db.Column(db.String(20), nullable=False)
     position = db.Column(db.String(20), nullable=False)
+    birth_date = db.Column(db.String(20), nullable=False)
+    birth_month = db.Column(db.String(20), nullable=False)
+    birth_year = db.Column(db.String(20), nullable=False)
+    age = db.Column(db.Integer)
     # --------------
 
     def __repr__(self):  # how object is printed to console
@@ -34,6 +37,7 @@ class Post(db.Model):
     content = db.Column(db.Text, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     post_image = db.Column(db.String(20), nullable=False, default='temporary.png')
+    post_video = db.Column(db.String(20), nullable=False, default='placeholder.mp4')
 
     def __repr__(self):  # how object is printed to console
         return f"Post('{self.title}', '{self.date_posted}')"

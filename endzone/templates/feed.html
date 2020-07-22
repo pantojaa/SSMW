@@ -13,20 +13,28 @@
 				<li><a href="team.html">Team</a></li>
 				<li><a href="{{ url_for('profile') }}">Profile</a></li>
 				<li><a href="{{ url_for('create_post') }}">New Post</a></li>
-				<li><a href="{{ url_for('logout') }}">Logout</a></li>
+				<li><a href="{{ url_for('logout') }}"> <i class="fa fa-sign-out"></i> Logout</a></li>
 			</ul>
 		</section>
 
 
 		<section class="rightcolumn">
-			<article class="post">
-				<p>SPONSORS 1</p>
+            <article class="post">
+				<h2>Nike</h2>
+                <p> <i>Just Do It.</i> </p>
+				<a class="user-properties" href="https://www.nike.com/" target="_blank">Deals on the best shoes. Click here to visit our website.</a>
 			</article>
+
 			<article class="post">
-				<p>SPONSORS 2</p>
+				<h2>Adidas</h2>
+                <p> <i>Impossible Is Nothing.</i> </p>
+				<a class="user-properties" href="https://www.adidas.com/us" target="_blank">Shop for athletic apparel. Click here to visit our website.</a>
 			</article>
+
 			<article class="post">
-				<p>SPONSORS 3</p>
+				<h2>Lululemon</h2>
+                <p> <i>This Is Yoga.</i> </p>
+				<a class="user-properties" href="https://shop.lululemon.com/" target="_blank">Helping you stay fit. Click here to visit our website.</a>
 			</article>
 
 			<article class="post">
@@ -80,10 +88,14 @@
 			{% for post in posts %}
 				<article class="post">
 					{% if post.author == current_user %}
-						<div class="post-misc">
+                        <div class="post-misc">
 							<ul class="button-side">
-								<li> <a href="{{ url_for('update_post', post_id=post.id) }}"> {{ form.edit() }}</a> </li>
-								<li> <a href="{{ url_for('delete_post', post_id=post.id) }}"> {{ form.delete()}} </a> </li>
+								<li class="edit-properties">
+                                    <a href="{{ url_for('update_post', post_id=post.id) }}" style="color: white;"> <i class="fa fa-pencil"></i> Edit </a>
+                                </li>
+								<li class="delete-properties">
+                                    <a href="{{ url_for('delete_post', post_id=post.id) }}" style="color: white;"> <i class="fa fa-trash"></i> Delete </a>
+                                </li>
 							</ul>
 						</div>
 					{% endif %}
@@ -96,16 +108,22 @@
 					</div>
 
 					<div class="post-publisher">
-						{{ post.author.first_name }} {{ post.author.last_name }}
-						{{ post.date_posted.strftime('%m/%d/%Y') }}
+                        <a class="user-properties" href="{{ url_for('get_profile', author_id=post.author.id) }}"> {{ post.author.first_name }} {{ post.author.last_name }} </a>
+						{{ post.date_posted.strftime('%m/%d/%y') }}
 					</div>
 
 					<p class="post-content">{{ post.content }}</p>
 
+                    <!-- Checks to see if an image was uploaded-->
 					{% if post.post_image != 'temporary.png' %}
 						<div class="fakeimg">
 							<img class="post-image-properties" src="{{ url_for('static', filename='pics/' + post.post_image) }}">
 						</div>
+                    <!-- Checks to see if a video was uploaded -->
+                    {% elif post.post_video != 'placeholder.mp4' %}
+                        <video width="730" height="500" controls>
+                            <source src="{{ url_for('static', filename='pics/' + post.post_video) }}" type="video/mp4">
+                        </video>
 					{% endif %}
 				</article>
 			{% endfor %}

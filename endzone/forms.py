@@ -12,7 +12,8 @@ class RegistrationForm(FlaskForm):
     email = StringField('Email*', validators=[DataRequired(), Email()])
     password = PasswordField('Password*', validators=[DataRequired()])
     confirm_password = PasswordField('Confirm password*', validators=[DataRequired(), EqualTo('password')])
-
+    gender = StringField('Gender*')
+    birthday = StringField('Birthday*')
     # New Stuff Added ------
     high_school = StringField('Current school', validators=[])
     sport = StringField('Sport', validators=[])
@@ -39,17 +40,17 @@ class PostForm(FlaskForm):
     submit = SubmitField('Post')
     delete = SubmitField('Delete')
     edit = SubmitField('Edit')
-    image = FileField('Attach files', validators=[FileAllowed(['jpeg', 'jpg', 'png'])])
+    image = FileField('Attach files', validators=[FileAllowed(['jpeg', 'jpg', 'png', 'mp4'])])
 
 
 class UpdateProfileForm(FlaskForm):
     first_name = StringField('First name', validators=[DataRequired(), Length(min=2, max=20)])
     last_name = StringField('Last name', validators=[DataRequired(), Length(min=2, max=20)])
     email = StringField('Email', validators=[DataRequired(), Email()])
-    high_school = StringField('Current school', validators=[DataRequired()])
-    sport = StringField('Sport', validators=[DataRequired()])
+    high_school = StringField('Current school', validators=[])
+    sport = StringField('Sport', validators=[])
     position = StringField('Position', validators=[])
-    select_file = FileField('Update profile picture', validators=[FileAllowed(['jpeg', 'jpg', 'png'])])
+    select_file = FileField('Update profile picture', validators=[FileAllowed(['jpeg', 'jpg', 'png', 'mp4'])])
     submit = SubmitField('Save changes')
     update_profile = SubmitField('Update Profile')
 

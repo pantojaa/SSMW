@@ -4,6 +4,7 @@ from endzone.forms import RegistrationForm, LoginForm, PostForm, UpdateProfileFo
 from endzone import app, bcrypt, db
 from flask_login import login_user, current_user, logout_user, login_required
 from PIL import Image
+
 import secrets
 import os
 
@@ -13,13 +14,27 @@ import os
 @app.route("/home", methods=['GET', 'POST'])
 def home():
     form = RegistrationForm()
-
+    gender = ''
+    BDmonth = ''
     # Validates data received with form
     if form.validate_on_submit():
         # encrypts user's password
         encrypt_pwd = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+
+        if request.method == 'POST':
+            selection = request.form.get('gender')
+            month = request.form.get('birthday_month')
+            day = request.form.get('birthday_day')
+            year = request.form.get('birthday_year')
+            # Sets gender
+            if selection == '1':
+                gender = 'Male'
+            elif selection == '2':
+                gender = 'Female'
+            user_age = get_age(year)
         # creates user
-        user = User(first_name=form.first_name.data, last_name=form.last_name.data, email=form.email.data, password=encrypt_pwd, high_school=form.high_school.data, sport=form.sport.data, position=form.position.data)
+        user = User(first_name=form.first_name.data, last_name=form.last_name.data, email=form.email.data, password=encrypt_pwd, gender=gender,
+                    birth_date=day, birth_month=month, birth_year=year, age=user_age, high_school=form.high_school.data, sport=form.sport.data, position=form.position.data)
         # Stages user
         db.session.add(user)
         # Commits user into database
@@ -29,6 +44,11 @@ def home():
         return redirect(url_for('login'))
 
     return render_template('home.html', title='Home', form=form)
+
+
+def get_age(year):
+    age = 2020 - int(year)
+    return age
 
 
 @app.route("/about")
@@ -82,12 +102,7 @@ def save_profile_pic(form_image):
     _, file_extension = os.path.splitext(form_image.filename)
     new_file_name = encoded_key + file_extension
     f_path = os.path.join(app.root_path, 'static\pics', new_file_name)
-
-    output_size = (150, 150)
-    profile_pic = Image.open(form_image)
-    profile_pic.thumbnail(output_size)
-    profile_pic.save(f_path)
-
+    form_image.save(f_path)
     return new_file_name
 
 
@@ -100,26 +115,42 @@ def profile():
     return render_template('profile.html', title="Account", posts=posts, image=image, form=form)
 
 
+# Will save the image as a random 8 hex file name
 def save_image(form_image):
     encoded_key = secrets.token_hex(8)
     _, file_extension = os.path.splitext(form_image.filename)
     new_file_name = encoded_key + file_extension
     f_path = os.path.join(app.root_path, 'static\pics', new_file_name)
-
     form_image.save(f_path)
-
     return new_file_name
 
+
+def save_video(video):
+    encoded_key = secrets.token_hex(8)
+    _, f_ext = os.path.splitext(video.filename)
+    new_f_name = encoded_key + f_ext
+    f_path = os.path.join(app.root_path, 'static\pics', new_f_name)
+    video.save(f_path)
+    return new_f_name
 
 @app.route("/post/new", methods=['GET', 'POST'])
 @login_required
 def create_post():
     form = PostForm()
+    video_ext = '.mp4'
     if form.validate_on_submit():
         post = Post(title=form.title.data, content=form.content.data, author=current_user)
+
         if form.image.data:
-            picture_file = save_image(form.image.data)
-            post.post_image = picture_file
+            # Gets the filename and splits into name and extension
+            # name is not used so it is declared as '_' (dummy variable)
+            _, f_ext = os.path.splitext(form.image.data.filename)
+            # Checks to see if file is not an mp4 file
+            if f_ext != video_ext:
+                post.post_image = save_image(form.image.data)
+            else:
+                post.post_video = save_video(form.image.data)
+
         db.session.add(post)
         db.session.commit()
         flash('Your post has been created', 'success')
@@ -165,7 +196,6 @@ def update_post(post_id):
         if form.image.data:
             picture = save_image(form.image.data)
             post.post_image = picture
-            current_user.img_file = picture
         db.session.commit()
         flash('Your post has been updated', 'success')
         return redirect(url_for('feed', post_id=post.id))
@@ -214,3 +244,15 @@ def update_profile():
     image = url_for('static', filename='pics/' + current_user.img_file)
     return render_template('update_profile.html', form=form, image=image)
 
+
+@app.route("/profile/user%%<int:author_id>", methods=['GET', 'POST'])
+@login_required
+def get_profile(author_id):
+    get_user = User.query.get_or_404(author_id)
+    all_posts = Post.query.all()
+    image = url_for('static', filename='pics/' + get_user.img_file)
+
+    # If profile selected is profile of current user.
+    if get_user.id == current_user.id:
+        return redirect(url_for('profile'))
+    return render_template('global_profile.html', title=get_user.first_name + ' ' + get_user.last_name, user=get_user, posts=all_posts, image=image)

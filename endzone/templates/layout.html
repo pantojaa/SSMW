@@ -6,7 +6,8 @@ Date: June 27,2020
 <html lang="en">
     <head>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
-
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='ez.png') }}">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -26,30 +27,29 @@ Date: June 27,2020
             <!--Use this area for website name or logo-->
             <header>
                     <!-- <a href="index.html"><img src="images/ez.png" alt="ez logo" class="logo"></a> -->
-                <a href="index.html"><img src="{{ url_for('static', filename= 'endzone.png') }}" alt="endzone logo" class="logo"></a>
+                <a href="{{ url_for('home') }}"><img src="{{ url_for('static', filename= 'endzone.png') }}" alt="endzone logo" class="logo"></a>
                 <!-- <a href="index.html"><img src="images/spartan.png" alt="spartan logo" class="logo"></a> -->
                     <!--Use the nav area to add hyperlinks to the other pages within the website-->
                 <nav>
                     <ul>
                         {% if current_user.is_authenticated %}
-                            <li><a href="{{ url_for('home') }}">Home</a></li>
-                            <li><a href="{{ url_for('feed') }}">Feed</a></li>
-                            <li><a href="{{ url_for('about') }}">About</a></li>
-                            <li><a href="{{ url_for('event') }}">Events</a></li>
-                            <li><a href="friends.html">Friends</a></li>
-                            <li><a href="{{ url_for('trending') }}">Trending</a></li>
-                            <li><a href="{{ url_for('team') }}">Team</a></li>
-                            <li><a href="{{ url_for('profile') }}">Profile</a></li>
+                            <li><a href="{{ url_for('feed') }}">  <i class="fa fa-server"></i> Feed</a></li>
+                            <li><a href="{{ url_for('event') }}"> <i class="fa fa-calendar"></i> Events</a></li>
+                            <li><a href="friends.html"> <i class="fa fa-users"></i> Friends</a></li>
+                            <li><a href="{{ url_for('trending') }}"> <i class="fa fa-line-chart"></i> Trending</a></li>
+                            <li><a href="{{ url_for('team') }}"> <i class="fa fa-sitemap"></i> Team</a></li>
+                            <li><a href="{{ url_for('profile') }}"> <i class="fa fa-user"></i> Profile</a></li>
                         {% else %}
-                            <li><a href="{{ url_for('home') }}">Home</a></li>
-                            <li><a href="{{ url_for('feed') }}">Feed</a></li>
-                            <li><a href="{{ url_for('about') }}">About</a></li>
-                            <li><a href="{{ url_for('event') }}">Events</a></li>
-                            <li><a href="friends.html">Friends</a></li>
-                            <li><a href="{{ url_for('trending') }}">Trending</a></li>
-                            <li><a href="{{ url_for('team') }}">Team</a></li>
-                            <li><a href="{{ url_for('profile') }}">Profile</a></li>
-                            <li><a href="{{ url_for('login') }}">Login</a></li>
+                            <li><a href="{{ url_for('home') }}"> <i class="fa fa-home"></i> Home</a></li>
+{#                            <li><a href="{{ url_for('feed') }}">Feed</a></li>#}
+                            <li><a href="{{ url_for('about') }}"> <i class="fa fa-book"></i> About</a></li>
+                            <li><a href="{{ url_for('contact_us') }}"> <i class="fa fa-envelope"></i> Contact Us</a></li>
+{#                            <li><a href="{{ url_for('event') }}">Events</a></li>#}
+{#                            <li><a href="friends.html">Friends</a></li>#}
+{#                            <li><a href="{{ url_for('trending') }}">Trending</a></li>#}
+{#                            <li><a href="{{ url_for('team') }}">Team</a></li>#}
+{#                            <li><a href="{{ url_for('profile') }}">Profile</a></li>#}
+                            <li><a href="{{ url_for('login') }}"> <i class="fa fa-sign-in"></i> Login</a></li>
                         {% endif %}
                     </ul>
                 </nav>

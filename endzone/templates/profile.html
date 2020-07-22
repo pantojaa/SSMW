@@ -4,22 +4,20 @@
 <div id="container">
 	<!-- Use the main area to add the main content of the webpage -->
 	<div id=main>
-		<img src="{{ url_for('static', filename='soccerball.jpg') }}" alt="soccer ball" class="imgbanner">
+		<img src="{{ url_for('static', filename='football_stadium.jpg') }}" alt="soccer ball" class="imgbanner">
+
+        <!-- Profile Image -->
 		<div class="profile-picture">
 			<img class="profile-img" src="{{ image }}">
 		</div>
 
+        <!-- end of profile image-->
 		<section class="onlyfeed">
 
-            <div class="form-group-post-profile">
-                <a href="{{ url_for('update_profile') }}"> {{ form.update_profile() }} </a>
-            </div>
-
+            <!-- Checks to see if there are any flash messages -->
 			{% with messages = get_flashed_messages(with_categories=true) %}
 				{% if messages %}
-
 					{% for category, message in messages %}
-
 						{% if category == 'success' %}
 							<div class="alert-success"> {{ message }} </div>
 						{% elif category == 'danger' %}
@@ -27,20 +25,32 @@
 						{% elif category == 'info' %}
 							<div class="alert-info"> {{ message }} </div>
 						{% endif %}
-
 					{% endfor %}
-
 				{% endif %}
 			{% endwith %}
+            <!-- end of messages -->
 
+            <!-- Profile bio -->
 			<article class="post">
-				<h2>BIO</h2>
-				<p>{{ current_user.first_name }} {{ current_user.last_name }}</p>
-				<p> Highschool : {{ current_user.high_school }}</p>
+                <div>
+                    <div class="post-misc">
+                        <ul class="button-side">
+                            <li> <a href="{{ url_for('update_profile') }}"> link</a> </li>
+                        </ul>
+                    </div>
+                </div>
+				<h1>{{ current_user.first_name }} {{ current_user.last_name }}</h1>
+                <p> Age: {{ current_user.age }}</p>
+                <p> Birthday: {{ current_user.birth_month }} {{ current_user.birth_date }}, {{ current_user.birth_year }}</p>
+                <p> Gender: {{ current_user.gender }}</p>
+				<p> Current School : {{ current_user.high_school }}</p>
                 <p> Sport: {{ current_user.sport }} </p>
                 <p> Position: {{ current_user.position }}</p>
-			</article>
 
+			</article>
+            <!-- end of bio -->
+
+            <!-- Displays posts -->
 			{% for post in posts %}
 				{% if post.author == current_user %}
 					<article class="post">
@@ -53,7 +63,7 @@
 
 							<div class="post-publisher">
 								{{ post.author.first_name }} {{ post.author.last_name }}
-								{{ post.date_posted.strftime('%m/%d/%Y') }}
+								{{ post.date_posted.strftime('%m/%d/%y') }}
 							</div>
 
 							<p class="post-content">{{ post.content }}</p>
@@ -62,11 +72,16 @@
 								<div class="fakeimg">
 									<img class="post-image-properties" src="{{ url_for('static', filename='pics/' + post.post_image) }}">
 								</div>
+                            <!-- Checks to see if a video was uploaded -->
+                            {% elif post.post_video != 'placeholder.mp4' %}
+                                <video class="video-formatting" width="730" height="500" controls>
+                                    <source src="{{ url_for('static', filename='pics/' + post.post_video) }}" type="video/mp4">
+                                </video>
 							{% endif %}
 					</article>
 				{% endif %}
 			{% endfor %}
-
+        <!-- end of posts -->
 		</section>
         </div>
 	</div><!--End of main-->
