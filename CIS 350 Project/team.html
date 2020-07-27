@@ -9,6 +9,9 @@ Date: June 27,2020
 	<title>Team Page - ENDZONE</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="EndZone team page">
+	<link href="https://fonts.googleapis.com/css2?family=Pridi:wght@600&display=swap" rel="stylesheet">
+	<link rel="icon" href="favicon.ico">
 </head>
 <body>
 
@@ -23,23 +26,53 @@ Date: June 27,2020
 		<nav>
 			<ul>
 				<li><a href="feed.html">Feed</a></li>
-				<li class="desktop"><a href="about.html">About</a></li>
+				<li class="desktop"><a href="trending.html">Trending</a></li>
+				<li class="desktop"><a href="profile.html">Profile</a></li>
 				<li class="desktop"><a href="friends.html">Friends</a></li>
-				<li><a href="trending.html">Trending</a></li>
-				<li><a href="profile.html">Profile</a></li>
+				<li>
+					<div class="dropdown">
+					  <a class="dropbtn">All</a>
+					  <div class="dropdown-content">
+						<a href="profile.html">Profile</a>
+						<a href="trending.html">Trending</a>
+						<a href="friends.html">Friends</a>
+						<a href="messages.html">Messages</a>
+						<a href="team.html">Team</a>
+						<a href="event.html">Events</a>
+						<a href="about.html">About</a>
+						<a href="index.html" class="mobile">Sign out</a>
+					  </div>
+					</div>
+				</li>
 			</ul>
 		</nav>
 	</header>
 	
 	<!-- Use the main area to add the main content of the webpage -->
-	<div id=main>
-		<img src="images/soccer_team.jpg" alt="soccer team" class="imgbanner">
-				<img src="images/soccer_team_profile_pic.jpg" alt="soccer team profile picture" class="bigprofilepic">
+	<div id=main>	
+		<div class="banner_and_pic">
+			<img src="images/soccer_team.jpg" alt="soccer team" class="imgbanner">
+			<div class="pic">
+				<img src="images/team_profile_pic.jpg" alt="soccer team profile picture" class="bigprofilepic">
+			</div><!-- End of pic -->
+		</div><!-- End of banner_and_pic -->
 		<div class="onlyfeed">
 			
 			<article class="post">
-				<h2>Team Bio</h2>
-				<p>Some text.. swgfvhasr';viohsargd 'SODhvoSDhv'SPODIhv' 'osIDh'osIDhv"SODhvs" 'sOPDIh'SODIhSOADIh'o SADh'opS Dhoh</p>
+				<h2>Team Description</h2>
+				<ul>
+					<li>Name: Soccer Stars</li>
+					<li>Sport: Soccer</li>
+					<li>Location: Florida</li>
+				</ul>
+				<p>We are Soccer Stars, a successful club soccer team in Florida. We currently boast a 3-to-1 win ratio in our division. We hope to inspire you to play the great sport of soccer!</p>
+			</article>
+			
+			<article class="post">
+				<img src="images/team_profile_pic.jpg" alt="soccer team profile picture" class="feedprofilepic">
+				<h2>Soccer Stars</h2>
+				<h5>June 4th, 2020</h5>
+				<p>An arial drone shot of our latest game!</p>
 				<video class="feedvideo" controls>
 					<source src="media/soccer_stadium.mp4" type="video/mp4">
 					Your browser does not support the video tag.
@@ -47,25 +80,18 @@ Date: June 27,2020
 			</article>
 			
 			<article class="post">
-				<img src="images/soccer_team_profile_pic.jpg" alt="soccer team profile picture" class="feedprofilepic">
+				<img src="images/team_profile_pic.jpg" alt="soccer team profile picture" class="feedprofilepic">
 				<h2>Soccer Stars</h2>
-				<h5>May 9th, 2020</h5>
-				<p>Some text..</p>
-			</article>
-			
-			<article class="post">
-				<img src="images/soccer_team_profile_pic.jpg" alt="soccer team profile picture" class="feedprofilepic">
-				<h2>Soccer Stars</h2>
-				<h5>May 9th, 2020</h5>
-				<p>Some text.. swgfvhasr';viohsargd 'SODhvoSDhv'SPODIhv' 'osIDh'osIDhv"SODhvs" 'sOPDIh'SODIhSOADIh'o SADh'opS Dhoh</p>
+				<h5>May 29th, 2020</h5>
+				<p>Training for our big game on June 4th.</p>
 				<img src="images/soccer_game.jpg" alt="soccer game picture" class="feedpic">
 			</article>
 			
 			<article class="post">
-				<img src="images/soccer_team_profile_pic.jpg" alt="soccer team profile picture" class="feedprofilepic">
+				<img src="images/team_profile_pic.jpg" alt="soccer team profile picture" class="feedprofilepic">
 				<h2>Soccer Stars</h2>
-				<h5>May 9th, 2020</h5>
-				<p>Some text.. swgfvhasr';viohsargd 'SODhvoSDhv'SPODIhv' 'osIDh'osIDhv"SODhvs" 'sOPDIh'SODIhSOADIh'o SADh'opS Dhoh</p>
+				<h5>May 18th, 2020</h5>
+				<p>Running a scrimmage with our pals Alanta Kings.</p>
 				<video class="feedvideo" controls>
 					<source src="media/soccer_game.mp4" type="video/mp4">
 					Your browser does not support the video tag.
@@ -73,11 +99,11 @@ Date: June 27,2020
 			</article>
 			
 			<article class="post">
-				<img src="images/soccer_team_profile_pic.jpg" alt="soccer team profile picture" class="feedprofilepic">
+				<img src="images/team_profile_pic.jpg" alt="soccer team profile picture" class="feedprofilepic">
 				<h2>Soccer Stars</h2>
-				<h5>May 9th, 2020</h5>
+				<h5>May 8th, 2020</h5>
 				<img src="images/goalie.jpg" alt="goalie" class="feedpic">
-				<p>Some text..</p>
+				<p>Adrian with the save!</p>
 			</article>
 			
 		</div><!--End of onlyfeed-->

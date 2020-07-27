@@ -6,9 +6,12 @@ Date: June 27,2020
 <html lang="en">
 <head>
 	<link rel="stylesheet" href="css/styles.css">
-	<title>Home- ENDZONE</title>
+	<title>Home - ENDZONE</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="EndZone sign up page">
+	<link href="https://fonts.googleapis.com/css2?family=Pridi:wght@600&display=swap" rel="stylesheet">
+	<link rel="icon" href="favicon.ico">
 </head>
 <body>
 
@@ -22,14 +25,25 @@ Date: June 27,2020
 		<!--Use the nav area to add hyperlinks to the other pages within the website-->
 		<nav>
 			<ul>
-				<li><a href="index.html">Home</a></li>
 				<li><a href="feed.html">Feed</a></li>
-				<li><a href="about.html">About</a></li>
-				<li><a href="event.html">Events</a></li>
-				<li><a href="friends.html">Friends</a></li>
-				<li><a href="trending.html">Trending</a></li>
-				<li><a href="team.html">Team</a></li>
-				<li><a href="profile.html">Profile</a></li>
+				<li class="desktop"><a href="trending.html">Trending</a></li>
+				<li class="desktop"><a href="profile.html">Profile</a></li>
+				<li class="desktop"><a href="friends.html">Friends</a></li>
+				<li>
+					<div class="dropdown">
+					  <a class="dropbtn">All</a>
+					  <div class="dropdown-content">
+						<a href="profile.html">Profile</a>
+						<a href="trending.html">Trending</a>
+						<a href="friends.html">Friends</a>
+						<a href="messages.html">Messages</a>
+						<a href="team.html">Team</a>
+						<a href="event.html">Events</a>
+						<a href="about.html">About</a>
+						<a href="index.html" class="mobile">Sign out</a>
+					  </div>
+					</div>
+				</li>
 			</ul>
 		</nav>
 	</header>
@@ -37,37 +51,52 @@ Date: June 27,2020
 
 	<!-- Use the main area to add the main content of the webpage -->
 	<div id=main>
-		<video id="videobanner" loop autoplay muted>
-			<source src="media/sports_montage.mp4" type="video/mp4">
-			Your browser does not support the video tag.
-		</video>
-		<div class="homebutton">
-			<ul>
-				<li><a href="#join">Join us</a></li>
-			</ul>
-		</div><!--End of homebutton-->
+		<div class="indexvideobanner tablet">
+			<video id="videobanner" loop autoplay muted>
+				<source src="media/sports_montage.mp4" type="video/mp4">
+				Your browser does not support the video tag.
+			</video>
+			<div class="homebutton">
+				<ul>
+					<li><a href="#join">Join us</a></li>
+				</ul>
+			</div><!--End of homebutton-->
+		</div><!--End of indexvideobanner-->
+		
 		<div id="join">
 			<article>
-			<h2>Join us!</h2>
-				<p>Here is where the user would use a form to sign up</p>
+			
+			<form method="post" action="https://cis.gvsu.edu/~lunaw/website_project/feedback.php"><!-- Start Form -->
+				<h2>Join us!</h2>
+				<p>Just fill out this simple to get a free membership.</p>
+				<p>Already have an account? <a href="login.html">Log in!</a></p>
 				
-				<form><!-- Start Form -->
-					<label for="fName">First Name:</label>
-					<input type="text" name="fName" id="fName" required>
+					<div class="inputbox">
+						<label for="fName">*First Name:</label>
+						<input type="text" name="fName" id="fName" required>
+					</div><!-- end of inputbox -->
 					
-					<label for="lName">Last Name:</label>
-					<input type="text" name="1Name" id="lName" required>
+					<div class="inputbox">
+						<label for="lName">*Last Name:</label>
+						<input type="text" name="1Name" id="lName" required>
+					</div><!-- end of inputbox -->
 					
-					<label for="email">Email</label>
-					<input type="email" name="email" id="email" required>
+					<div class="inputbox">
+						<label for="email">*Email</label>
+						<input type="email" name="email" id="email" required>
+					</div><!-- end of inputbox -->
 					
-					<label for="phone">Phone</label>
-					<input type="tel" name="phone" id="phone" required>
+					<div class="inputbox">
+						<label for="phone">*Phone</label>
+						<input type="tel" name="phone" id="phone" required>
+					</div><!-- end of inputbox -->
 					
-					<label for="password">Password</label>
-					<input type="password" name="password" id="password" required>
+					<div class="inputbox">
+						<label for="password">*Password</label>
+						<input type="password" name="password" id="password" required>
+					</div><!-- end of inputbox -->
 					
-					<p>Birthday</p>				<!--maybe shouldn't be a label-->
+					<p>*Birthday</p>				<!--maybe shouldn't be a label-->
 					<select name="bmonth" id="bmonth" required>
 						<option value="">Month</option>
 						<option value="jan">January</option>
@@ -225,25 +254,26 @@ Date: June 27,2020
 					
 					
 					<p>Gender</p> <!--change to legend?-->
-					<label for="male">Male</label>
-					<input type="radio" name="gender" id="male" value="male" class="chkbx">
+					<div class="inputchkbox">
+						<label for="male" class="inline">Male</label>
+						<input type="radio" name="gender" id="male" value="male" class="chkbx">
 					
-					<label for="female">Female</label>
-					<input type="radio" name="gender" id="female" value="female" class="chkbx">
+						<label for="female" class="inline">Female</label>
+						<input type="radio" name="gender" id="female" value="female" class="chkbx">
 					
-					<label for="other">Other</label>
-					<input type="radio" name="gender" id="other" value="other" class="chkbx">
-					
-					
+						<label for="other" class="inline">Other</label>
+						<input type="radio" name="gender" id="other" value="other" class="chkbx">
+					</div><!-- end of inputchkbox -->
 					
 					<input type="submit" id="submit" value="Submit" class="btn">
 					<input type="reset" id="reset" value="Reset Form" class="btn">
+					<p>*Required</p>
 				</form>
-				
-				<aside>
-				<p>This is a social media website!</p>
-				</aside>
 			</article>
+			<aside class="desktop">
+				<h2>This is a sports social media website!</h2>
+					<p>Our goal is to let people bond over their love for sports. You will be able to have a profile, sign up for events, and see your favorite team's post.</p>
+			</aside>
 		</div><!--End of join-->
 			
 		

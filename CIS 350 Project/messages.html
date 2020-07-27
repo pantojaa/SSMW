@@ -6,10 +6,10 @@ Date: June 27,2020
 <html lang="en">
 <head>
 	<link rel="stylesheet" href="css/styles.css">
-	<title>About - ENDZONE</title>
+	<title>Messages - ENDZONE</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="EndZone about page">
+	<meta name="description" content="EndZone messages page">
 	<link href="https://fonts.googleapis.com/css2?family=Pridi:wght@600&display=swap" rel="stylesheet">
 	<link rel="icon" href="favicon.ico">
 </head>
@@ -22,6 +22,7 @@ Date: June 27,2020
 		<a href="index.html"><img src="images/ez.png" alt="ez logo" class="logo mobile"></a>
 		<a href="index.html"><img src="images/endzone.png" alt="endzone logo" class="logo desktop"></a>
 		<!--<a href="index.html"><img src="images/spartan.png" alt="spartan logo" class="logo"></a>-->
+		<!--Use the nav area to add hyperlinks to the other pages within the website-->
 		<nav>
 			<ul>
 				<li><a href="feed.html">Feed</a></li>
@@ -49,33 +50,28 @@ Date: June 27,2020
 	
 	<!-- Use the main area to add the main content of the webpage -->
 	<div id=main>
-		<img src="images/soccerball.jpg" alt="soccer ball" class="imgbanner">
-		<article id="about">
-			<h2>About us</h2>
-			<p>The EndZone team wants to revolutionize the sports community. Our idea is to create a centeralize platform where people can share their love of sport. Whether you wanted to follow your favorite team, see events occuring near you, or show off you crazy sports moment, EndZone has something for you.</p>
-			
-			<p>To keep EndZone up and running, we have a dedicated office open on these hours. Please contact us with any questions and suggestions!</p>
-			
-			<table>
-					<caption>Hours of Operation</caption>
-					<thead>
-						<tr>
-							<th>Weekdays</th>
-							<th>Saturday</th>
-							<th>Sunday</th>
-						</tr>
-					</thead> 
-					<tbody>
-						<tr>
-							<td>9AM-5PM</td>
-							<td>9AM-4PM</td>
-							<td>10AM-4PM</td>
-							
-						</tr>
-						</tr>
-					</tbody>
-				</table>
-		</article>
+		<div id="messagecenter">
+			<form action="mailto:lunaw@mail.gvsu.edu" method="post">
+				<h2>Messages</h2>
+				<p>Here you can contact your friends or help@endzone.</p>
+				
+				<p>*Who do you want to contact?</p>
+				<select required>
+					<option value="">Contact</option>
+					<option value="JS">Josh Smith</option>
+					<option value="OE">Ollie Ellis</option>
+					<option value="KP">Katy Pickett</option>
+					<option value="AR">Alea Rose</option>
+					<option value="EZ">help@endzone.com</option>
+				</select>		
+				
+				<p>*Send your message</p>
+				<textarea name="message" rows="4" cols="50" placeholder="Enter your message here!"></textarea><br>
+				<input type="submit" id="submit" value="Submit" class="btn">
+				<input type="reset" id="reset" value="Reset Form" class="btn">
+				<p>*Required</p>
+			</form>
+		</div><!--End of messagecenter-->
 	</div><!--End of main-->
 	
 	<!-- Use the footer area to add webpage footer content -->

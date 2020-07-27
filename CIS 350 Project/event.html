@@ -9,6 +9,9 @@ Date: June 27,2020
 	<title>Event Page - ENDZONE</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="EndZone event page">
+	<link href="https://fonts.googleapis.com/css2?family=Pridi:wght@600&display=swap" rel="stylesheet">
+	<link rel="icon" href="favicon.ico">
 </head>
 <body>
 
@@ -21,22 +24,38 @@ Date: June 27,2020
 		<!--<a href="index.html"><img src="images/spartan.png" alt="spartan logo" class="logo"></a>-->
 		<nav>
 			<ul>
-				<li><a href="index.html">Home</a></li>
 				<li><a href="feed.html">Feed</a></li>
-				<li><a href="about.html">About</a></li>
-				<li><a href="event.html">Events</a></li>
-				<li><a href="friends.html">Friends</a></li>
-				<li><a href="trending.html">Trending</a></li>
-				<li><a href="team.html">Team</a></li>
-				<li><a href="profile.html">Profile</a></li>
+				<li class="desktop"><a href="trending.html">Trending</a></li>
+				<li class="desktop"><a href="profile.html">Profile</a></li>
+				<li class="desktop"><a href="friends.html">Friends</a></li>
+				<li>
+					<div class="dropdown">
+					  <a class="dropbtn">All</a>
+					  <div class="dropdown-content">
+						<a href="profile.html">Profile</a>
+						<a href="trending.html">Trending</a>
+						<a href="friends.html">Friends</a>
+						<a href="messages.html">Messages</a>
+						<a href="team.html">Team</a>
+						<a href="event.html">Events</a>
+						<a href="about.html">About</a>
+						<a href="index.html" class="mobile">Sign out</a>
+					  </div>
+					</div>
+				</li>
 			</ul>
 		</nav>
 	</header>
 	
 	<!-- Use the main area to add the main content of the webpage -->
 	<div id=main>
-		<img src="images/bball_event.jpg" alt="basketball" class="imgbanner">
+		<div class="banner_and_pic">
+			<img src="images/bball_event.jpg" alt="basketball" class="imgbanner">
+			<div class="pic">
 				<img src="images/bball_coach.jpg" alt="basketball coach" class="bigprofilepic">
+			</div><!-- End of pic -->
+		</div><!-- End of banner_and_pic -->
+		
 		<div class="onlyfeed">
 			
 			<article class="post">
