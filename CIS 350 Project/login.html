@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!-- 
+Author: Wesley Luna
+Date: June 27,2020
+-->
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="css/styles.css">
+	<title>login - ENDZONE</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="EndZone login page">
+	<link href="https://fonts.googleapis.com/css2?family=Pridi:wght@600&display=swap" rel="stylesheet">
+	<link rel="icon" href="favicon.ico">
+</head>
+<body>
+
+	<div id="container">
+
+	<!--Use this area for website name or logo-->
+	<header>
+		<a href="index.html"><img src="images/ez.png" alt="ez logo" class="logo mobile"></a>
+		<a href="index.html"><img src="images/endzone.png" alt="endzone logo" class="logo desktop"></a>
+		<!--<a href="index.html"><img src="images/spartan.png" alt="spartan logo" class="logo"></a>-->
+		<!--Use the nav area to add hyperlinks to the other pages within the website-->
+		<nav>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+			</ul>
+		</nav>
+	</header>
+	
+
+	<!-- Use the main area to add the main content of the webpage -->
+	<div id=main>
+		<div id="login">
+				<form method="post" action="https://cis.gvsu.edu/~lunaw/website_project/feedbacklogin.php"><!-- Start Form -->
+					<h2>Log in!</h2>
+					<p>Just fill out this simple to log in.</p>
+					<p>Don't have an account? <a href="index.html">Sign up!</a></p>
+						
+						<div class="inputbox">
+							<label for="email">*Email</label>
+							<input type="email" name="email" id="email" required>
+						</div><!-- end of inputbox -->
+						
+						
+						<div class="inputbox">
+							<label for="password">*Password</label>
+							<input type="password" name="password" id="password" required>
+						</div><!-- end of inputbox -->
+						
+						<input type="submit" id="submit" value="Submit" class="btn">
+						<input type="reset" id="reset" value="Reset Form" class="btn">
+						<p>*Required</p>
+				</form>
+		</div><!--End of login-->
+	</div><!--End of main-->
+	
+	<!-- Use the footer area to add webpage footer content -->
+	<footer>
+		&copy; Copyright 2020. All Rights Reserved. <br>
+		<a href="mailto:help@endzone.com">help@endzone.com</a>
+	</footer>
+	</div><!--End of container-->
+
+</body>
+</html>
