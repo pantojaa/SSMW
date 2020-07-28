@@ -3,50 +3,49 @@ Author: Wesley Luna
 Date: June 27,2020
 */
 
+/* Specifies style for links in nav bar */
 header nav ul li a{
-	text-decoration: none;
 	color: #000000;
 	padding: 0.50em;
-/*	padding-top: 0.75em;
-	padding-bottom: 0.75em; */
 	border-radius: 0.25em; 
-/*	border: .1em solid #1D8DD1;*/
 	border: .1em solid #D1080C;
+	background-color: #D1080C;
 	
 }
 
+header nav {
+	margin-right: 4em;
+}
+
+/* Specifies style for logo in navbar */
 header img {
 	float: left;
 	max-width: 20%;
 /*endzone or ez*/
 	height: 30px; 
 	margin: 1em; 
-
-/*spartan*/
-/*	height: 50px;
-	margin-left: 1em; 
-*/
 }
 
+/* Specifies style for li element in nav bar */
 header nav li {
 	display: inline-block;
-	text-decoration: none;
 	color: #000000;
-/*	margin-right: 1em; */
 	margin: 0em;
 	font-size: 1.5em;
 }
 
+/* Specifies style for ul element in nav bar */
 header nav ul{
 	float: right;
 	list-style: none;
 }
 
-
+/* Specifies style for links in nav bar for visited psuedo class */
 header nav ul li a:visited{
 	color: #000000;
 }
 
+/* Specifies style for links in nav bar for hover psuedo class */
 header nav ul li a:hover{
 	color: #FFFFFF;
 	/*background-color: #e1181C;*/
@@ -54,64 +53,75 @@ header nav ul li a:hover{
 	border: .1em solid #FFFFFF;
 }
 
+/* Specifies style for ul li element */
 ul li {
 	list-style: none;
 }
 
+/* Specifies style for ul li a element */
 ul li a {
-	text-decoration: none;
 	color: #000000; 
 }
 
-nav a{
-	/*background-color: #0000FF;*/
-}
-
+/* Specifies style for header element */
 header {
 	background: #D1080C; 
 	position: fixed;
 	width: 100%;
 	z-index: 1;
+	height: 60px;
 /*	background: #1D8DD1; */
 }
 
-header::after {
-	content: ' ';
-	display: table;
-	clear: both;
-}
-
+/* Specifies style for ul li a for the userlinks id */
 #userlinks ul li a{
 	color: #FFFFFF;
 }
 
+/* Specifies style for ul li a for the userlinks id in the hover psuedo class*/
 #userlinks ul li a:hover{
 	color: #D1080C;
 }
 
+/* Specifies style for container id */
 #container{
 	margin: 0 auto;
 	width: 100%;
 }
 
+/* Specifies style for video banner id */
 #videobanner {
 	width: 100%;
 	height: auto;
-	margin-top: 3.5em;
+	margin-top: 60px;
 }
 
+/* Specifies style for the banner_and_pic class */
+.banner_and_pic {
+	position: relative;
+	margin-bottom: 5%;
+}
+
+/* Specifies style for imgbanner class */
 .imgbanner {
 	width: 100%;
-	max-height: 400px;
+	height: 20%;
 	height: auto; 
-	margin-top: 3.75em;
+	margin-top: 60px;
 }
 
+/* Specifies style for body element */
 body { 
 	margin: 0;
 	background: #191919;
 }
 
+/* Specifies style for the indexvideobanner class */
+.indexvideobanner {
+	position: relative;
+}
+
+/* Specifies style for homebutton class */
 .homebutton {
 	margin: 0;
 	position: absolute;
@@ -121,6 +131,7 @@ body {
 	color: #D1080C;
 }
 
+/* Specifies style for the ul li a in the homebutton class */
 .homebutton ul li a{
 	color: #D1080C;
 	border-radius: 0.25em; 
@@ -129,69 +140,89 @@ body {
 	font-size: 2em;
 }
 
+/* Specifies style for the visited psuedo class for the ul li a in the homebutton class */
 .homebutton ul li a:visited{
 	color: #D1080C;
 	border-radius: 0.25em; 
 	border: .1em solid #D1080C;
 }
 
+/* Specifies style for the hover psuedo class for the ul li a in the homebutton class */
 .homebutton ul li a:hover{
 	color: #FFFFFF;
 	border-radius: 0.25em; 
 	border: .1em solid #FFFFFF;
 }
 
-p {
+/* Specifies style for footer a element */
+footer a {
+	color: #999999;
+}
+
+/* Specifies style for ther hover psuedo class for footer a element */
+footer a:hover {
 	color: #FFFFFF;
 }
-/*
-#joindescription {
-	margin-top: 4em;
-	margin-bottom: 30em;
-	margin-right: 10%;
-	float: right;
-	background-color: #282828;
-	width: 30em;
-	height: 30em;
-	padding-top: 1em;
 
+/* Specifies style for the p, h1, h2, h3, h4, h5, h6, and label elements */
+p, h1, h2, h3, h4, h5, h6, label {
+	color: #FFFFFF;
 }
-*/
+
+/* Specifies style for the h2 element */
+h2 {
+	font-family: 'Pridi', serif;
+}
+
+/* Specifies style for join id */
 #join {
 	float: left;
 	margin-top: 4em;
-	margin-bottom: 20%;
+	margin-bottom: 15%;
 	margin-left: 10%;
 	width: 80%;
 	padding-top: 1em;
+	background-color: #282828;
+	border-radius: 1em;
 }
 
+/* Specifies style for article element in the join id */
 #join article{
-	height: 30em;
+	float: left;
+	padding: 1em;
+	margin: 1em;
+	display: inline-block;
+	width: 40%;
 }
 
+/* Specifies style for article element */
 article {
 	background-color: #282828;
 	border-radius: 1em;
 	padding: 1%;
 }
 
+/* Specifies style for about id */
 #about {
 	width: 80%;
 	margin-top: 4em; 
 	margin-left: 9%;
 }
+
+/* Specifies style for footer element */
 footer {
 	clear: both;
 	float: left;
 	color: #999999;
+	margin: 1em;
 }
 
+/* Specifies style for html element */
 html {
 	scroll-behavior: smooth;
 }
 
-
+/* Specifies style for feed class */
 .feed {
 	float: right;
 	width: 100%;
@@ -199,42 +230,22 @@ html {
 	margin-top: 4em;
 }
 
-/*
-.feed {
+/* Specifies style for friends class */
+.friends {
 	float: right;
-	width: 40%;
+	width: 100%;
 	padding: 0.75%;
-	margin-left: 0.75%;
-	margin-right: 0.75%;
 	margin-top: 4em;
 }
-*/
+
+/* Specifies style for onlyfeed class */
 .onlyfeed {
 	width: 100%;
 	padding: 0.75%;
-	margin-top: 4em;
+	margin-top: 5%;
 }
 
-
-
-/* Fake image */
-.fakeimg {
-	background-color: #aaa;
-	width: 80%;
-	padding: 5em;
-	margin: 0;
-}
-
-/* Small ake image */
-.smallfakeimg {
-	background-color: #aaa;
-	width: 1%;
-	padding: 1em;
-	border-radius: .3em;
-	float: left;
-	margin-right: 0.75em;
-}
-
+/* Specifies style for post class */
 .post {
 	/*background-color: #282828;*/
 	padding-left: 1.5%;
@@ -247,30 +258,42 @@ html {
 	margin-bottom: 2em;
 }
 
+/* Specifies style for h2 element in the post class */
 .post h2 {
 	font-weight: bold;
 	font-size: 1em;
 }
 
+/* Specifies style for main id */
 #main {
 	z-index: 2;
 }
 
+/* Specifies style for desktop */
 .desktop {
 	display: none;
 }
 
+/* Specifies style for feedpic class */
 .feedpic {
 /*	max-width: 100%; */
 	width: 100%;
 	height: auto;
 }
 
+/* Specifies style for feedpic2x class */
+.feedpic2x {
+	max-width: 100%;
+	height: auto;
+}
+
+/* Specifies style for feedvideo class */
 .feedvideo {
 	width: 100%;
 	height: auto;	
 }
 
+/* Specifies style for feedprofilepic class */
 .feedprofilepic {
 	width: 50px;
 	height: 65px;
@@ -280,30 +303,174 @@ html {
 	margin-right: 0.75em;
 }
 
+/* Specifies style for pic class */
+.pic {
+	position: absolute;
+}
+
+/* Specifies style for bigprofilepic class */
 .bigprofilepic {
 	width: 15%;
-	height: 15%;
 	margin-left: 42.5%; 
-	/*
+	transform: translate(0, -100%);
+	border-radius: 2em;
+	border: .25em solid #D1080C;
+}
+
+
+/* Specifies style for label element */
+label {
+	display: block;
+}
+
+/* Specifies style for inputbox and inputchkbox class */
+.inputbox, .inputchkbox {
+	margin-bottom: 1em;
+}
+
+/* Specifies style for inline class */
+.inline {
+	display: inline;
+}
+
+/* Specifies style for form a element */
+form a {
+	color: #D1080C;
+}
+
+/* Specifies style for hover psuedo class in form a element */
+form a:hover {
+	color: #FFFFFF;
+}
+
+/* Specifies style for login id */
+#login, #thank_you, #messagecenter {
+	padding-top: 2em;
+}
+
+/* Specifies style for form element in login id and the thank_you_post id within thank_you id*/
+#login form, #thank_you #thank_you_post, #messagecenter form{
+	width: 100%;	
+	margin-top: 60px;
+	padding: 2em;
+	background-color: #282828;
+	border-radius: 1em;
+}
+
+/* Specifies color for a element thankyou page*/
+#thank_you #thank_you_post a {
+	color: #D1080C;
+}
+
+/* Specifies style for aside element */
+aside {
+	display: none;
+	display: inline-block;
+	float: left;
+	margin-left: 1em;
+	margin-right: 1em;
+	margin-top: 3em;
+	padding: 3em;
+	width: 30%;
+	border: solid .25em #D1080C; 
+	border-radius: 2em;
+}
+
+/* Specifies style for a element */
+a {
+	text-decoration: none;
+}
+
+/* Specifies style for a element in rightcolumn class */
+.rightcolumn a {
+	color: #D1080C;
+}
+
+/* Specifies style for hover psuedo class for a element in rightcolumn class */
+.rightcolumn a:hover {
+	color: #FFFFFF;
+}
+
+/* Hides tablet viewport*/
+.tablet {
+	display: none;
+}
+
+/* Hides desktop viewport*/
+.desktop {
+	display: none;
+}
+
+/* Specifies style for dropdown class */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Specifies style for dropdown-content class */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  padding-top: 0.75em;
+  padding-bottom: 0.75em;
+  z-index: 1;
+}
+
+/* Specifies style for a element in dropdown-content class */
+.dropdown-content a {
+  padding: 12px 16px;
+  display: block;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+/* Style rules for caption element */
+caption {
+	color: #D1080C;
+	font-weight: bold;
+	margin-bottom: 0.5em;
+}
+
+/* Style rules for td and th elements */
+td, th{
+	padding-left: .5em;
+	padding-right: .5em;
+	margin: 2em;
+	color: #FFFFFF;
+}
+
+/* Style rules for table*/
+table {
 	margin-left: auto;
 	margin-right: auto;
-	*/
-	border-radius: 2em;
-	margin-top: -15em;
-	border: .5em solid #D1080C;
 }
 
 /* Media query for desktop viewport targets screens with minimum width of 830px. */
-@media only screen and (min-width: 830px) {
+@media only screen and (min-width: 481px) {
 
+/* displays tablet viewport*/
+.tablet {
+	display: block;
+}
+}
+
+/* Media query for desktop viewport targets screens with minimum width of 830px. */
+@media only screen and (min-width: 875px) {
+
+/* Hides mobile viewport*/
 .mobile {
 	display: none;
 }
 
+/* displays desktop viewport*/
 .desktop {
 	display: inline-block;
 }
 
+/* Specifies style for onlyfeed class */
 .onlyfeed {
 	width: 40%;
 	padding: 0.75%;
@@ -312,21 +479,19 @@ html {
 	margin-top: 4em;
 }
 
+/* Specifies style for rightcolumn class */
 .rightcolumn {
 	float: right;
 	width: 25%;
-/*	background-color: #282828; */
 	padding: 0.75%;
 	margin-left: 0.75%;
 	margin-right: 0.75%;
 	margin-top: 4em;
 	border-radius: 1em;
-/*	max-height: 15em;
-	height: 300px;
-	overflow-y: auto; */
 
 }
 
+/* Specifies style for feed class */
 .feed {
 	float: right;
 	width: 40%;
@@ -336,7 +501,7 @@ html {
 	margin-top: 4em;
 }
 
-
+/* Specifies style for userlinks id */
 #userlinks {
 	float: left;
 	width: 25%;
@@ -348,4 +513,48 @@ html {
 	border-radius: 1em;
 	position: fixed;
 }
+
+/* Specifies style for label element */
+label {
+	display: inline;
+}
+
+/* Specifies style for bigprofilepic class */
+.bigprofilepic {
+	width: 15%;
+	height: 15%;
+	margin-left: 42.5%; 
+	transform: translate(0, -50%);
+	border-radius: 2em;
+	border: .5em solid #D1080C;
+}
+
+/* Specifies style for banner_and_pic class */
+.banner_and_pic {
+	margin-bottom: 15%;
+}
+
+/* Specifies style for form element in the login id */
+#login form, #thank_you #thank_you_post, #messagecenter form{
+	width: 80%;
+	margin-left: 10%;	
+}
+
+/* Specified style for td and th elements */
+td, th{
+	border: 0.1em solid #D1080C;
+}
+
+/* Specified style for caption element */
+caption {
+	color: #FFFFFF;
+}
+
+/* Specified style for friends class */
+.friends {
+	float: left;
+	width: 40%;
+	padding: 0.75%;
+	margin-left: 30%;
+	margin-top: 4em;
 }
