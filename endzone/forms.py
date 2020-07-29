@@ -14,7 +14,8 @@ class RegistrationForm(FlaskForm):
     confirm_password = PasswordField('Confirm password*', validators=[DataRequired(), EqualTo('password')])
     gender = StringField('Gender*')
     birthday = StringField('Birthday*')
-    # New Stuff Added ------
+    city = StringField('City*')
+    state = StringField('State*')
     high_school = StringField('Current school', validators=[])
     sport = StringField('Sport', validators=[])
     position = StringField('Position', validators=[])
@@ -51,7 +52,10 @@ class UpdateProfileForm(FlaskForm):
     high_school = StringField('Current school', validators=[])
     sport = StringField('Sport', validators=[])
     position = StringField('Position', validators=[])
+    city = StringField('City')
+    state = StringField('State')
     select_file = FileField('Update profile picture', validators=[FileAllowed(['jpeg', 'jpg', 'png'])])
+    banner = FileField('Update banner', validators=[FileAllowed(['jpeg', 'jpg', 'png'])])
     submit = SubmitField('Save changes')
     update_profile = SubmitField('Update Profile')
 
@@ -73,3 +77,12 @@ class UpdateProfileForm(FlaskForm):
             user = User.query.filter_by(email=email.data).first()
             if user:
                 raise ValidationError('Email is already being used. Please select another one.')
+
+
+class CreateEventForm(FlaskForm):
+    title = StringField('Title', validators=[DataRequired()])
+    date = StringField('Date', validators=[DataRequired()])
+    time = StringField('Time', validators=[DataRequired()])
+    location = StringField('Location', validators=[DataRequired()])
+    content = TextAreaField('Description', validators=[DataRequired()])
+    submit = SubmitField('Create')
