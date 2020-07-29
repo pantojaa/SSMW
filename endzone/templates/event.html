@@ -1,50 +1,52 @@
-{% extends "layout.html"%}
+{% extends 'layout.html' %}
 
 {% block content %}
-<div id="container">
-
-	<div id="container">
         <!-- Use the main area to add the main content of the webpage -->
-        <div id=main>
-		    <img src="{{ url_for('static', filename='soccerball.jpg') }}" alt="soccer ball" class="imgbanner">
-            <section class="onlyfeed">
+    <div id="container">
+		<section id="userlinks">
+			<ul>
+				<li><a href="{{ url_for('home') }}">Home</a></li>
+				<li><a href="{{ url_for('feed') }}">Feed</a></li>
+				<li><a href="about.html">About</a></li>
+				<li><a href="event.html">Events</a></li>
+				<li><a href="friends.html">Friends</a></li>
+				<li><a href="trending.html">Trending</a></li>
+				<li><a href="team.html">Team</a></li>
+				<li><a href="{{ url_for('profile') }}">Profile</a></li>
+				<li><a href="{{ url_for('create_event') }}">Create Event</a></li>
+			</ul>
+		</section>
 
-                <article class="post">
-                    <h2>Event Description</h2>
-                    <p>Some text.. swgfvhasr';viohsargd 'SODhvoSDhv'SPODIhv' 'osIDh'osIDhv"SODhvs" 'sOPDIh'SODIhSOADIh'o SADh'opS Dhoh</p>
-                </article>
+		<div class="event-feed">
 
-                <article class="post">
-                    <div class="smallfakeimg">Pic</div>
-                    <h2>TITLE HEADING</h2>
-                    <h5>Title description, Dec 7, 2017</h5>
-                    <div class="fakeimg">Image</div>
-                    <p>Some text..</p>
-                </article>
+            {% for event in event_form %}
+				<article class="post">
 
-                <article class="post">
-                    <div class="smallfakeimg">Pic</div>
-                    <h2>TITLE HEADING</h2>
-                    <h5>Title description, Dec 7, 2017</h5>
-                    <p>Some text.. swgfvhasr';viohsargd 'SODhvoSDhv'SPODIhv' 'osIDh'osIDhv"SODhvs" 'sOPDIh'SODIhSOADIh'o SADh'opS Dhoh</p>
-                </article>
+                    {% if event.author == current_user %}
+                        <div class="post-misc">
+							<ul class="button-side">
+								<li class="edit-properties">
+                                    <a href="{{ url_for('update_event', event_id=event.id) }}" style="color: white;"> <i class="fa fa-pencil"></i> Edit</a>
+                                </li>
+								<li class="delete-properties">
+                                    <a href="{{ url_for('delete_event', event_id=event.id) }}" style="color: white;"> <i class="fa fa-trash"></i> Delete </a>
+                                </li>
+							</ul>
+						</div>
+					{% endif %}
+					<div class="smallfakeimg">
+						<img class="article-img" src="{{  url_for('static', filename='pics/' + event.author.img_file)}}">
+					</div>
+					<div class="post-title">
+						{{ event.title }}
+					</div>
+                    <div class="post-publisher">
+                        <a class="user-properties" href="{{ url_for('get_event', event_id=event.id) }}">Click here for more details </a> {{ event.date_posted.strftime('%m/%d/%y') }}
+					</div>
+					<p class="post-content">{{ event.content }}</p>
 
-                <article class="post">
-                    <div class="smallfakeimg">Pic</div>
-                    <h2>TITLE HEADING</h2>
-                    <h5>Title description, Dec 7, 2017</h5>
-                    <p>Some text.. swgfvhasr';viohsargd 'SODhvoSDhv'SPODIhv' 'osIDh'osIDhv"SODhvs" 'sOPDIh'SODIhSOADIh'o SADh'opS Dhoh</p>
-                </article>
-
-                <article class="post">
-                    <div class="smallfakeimg">Pic</div>
-                    <h2>TITLE HEADING</h2>
-                    <h5>Title description, Dec 7, 2017</h5>
-                    <div class="fakeimg">Image</div>
-                    <p>Some text..</p>
-                </article>
-
-            </section>
-        </div><!--End of main-->
-    </div>
-{% endblock %}
+				</article>
+            {% endfor %}
+		</div><!--End of feed-->
+	</div><!--End of main-->
+{% endblock content %}
