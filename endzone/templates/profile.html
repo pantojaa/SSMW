@@ -4,7 +4,7 @@
 <div id="container">
 	<!-- Use the main area to add the main content of the webpage -->
 	<div id=main>
-		<img src="{{ url_for('static', filename='football_stadium.jpg') }}" alt="soccer ball" class="imgbanner">
+		<img src="{{ banner_image }}" alt="soccer ball" class="imgbanner">
 
         <!-- Profile Image -->
 		<div class="profile-picture">
@@ -39,7 +39,7 @@
                         </ul>
                     </div>
                 </div>
-				<h1 style="color: #D1080C">{{ current_user.first_name }} {{ current_user.last_name }}</h1>
+				<h1 style="color: #D1080C">{{ current_user.first_name }} {{ current_user.last_name }} </h1>
                 <p> About me: <i>{{ current_user.about }} </i> </p>
                 <p> Age: <i>{{ current_user.age }} </i> </p>
                 <p> Birthday: <i> {{ current_user.birth_month }} {{ current_user.birth_date }}, {{ current_user.birth_year }} </i> </p>
@@ -47,6 +47,7 @@
                 <p> Current School : <i> {{ current_user.high_school }} </i> </p>
                 <p> Sport: <i> {{ current_user.sport }} </i> </p>
                 <p> Position: <i> {{ current_user.position }} </i> </p>
+                <p> Lives in: {{ current_user.city }}, {{ current_user.state }}</p>
 
 			</article>
             <!-- end of bio -->
