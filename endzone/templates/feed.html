@@ -13,7 +13,6 @@
 				<li><a href="team.html">Team</a></li>
 				<li><a href="{{ url_for('profile') }}">Profile</a></li>
 				<li><a href="{{ url_for('create_post') }}">New Post</a></li>
-				<li><a href="{{ url_for('logout') }}"> <i class="fa fa-sign-out"></i> Logout</a></li>
 			</ul>
 		</section>
 
@@ -125,6 +124,8 @@
                             <source src="{{ url_for('static', filename='pics/' + post.post_video) }}" type="video/mp4">
                         </video>
 					{% endif %}
+
+
 				</article>
 			{% endfor %}
 
