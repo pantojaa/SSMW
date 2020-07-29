@@ -1,62 +1,327 @@
-<!DOCTYPE html>
-<!--
-Author: Wesley Luna
-Date: June 27,2020
--->
-<html lang="en">
-    <head>
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-        <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='ez.png') }}">
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+{% extends "layout.html" %}
 
-        <!-- Displays title -->
-        {% if title %}
-            <title>Endzone - {{ title }}</title>
-        {% else %}
-            <title>Endzone</title>
-        {% endif %}
+{% block content %}
+        <!-- Use the main area to add the main content of the webpage -->
+        <div id=main>
+            <video id="videobanner" alt="sports video"loop autoplay muted>
+                <source src="{{ url_for('static', filename='sports_montage.mp4') }}" type="video/mp4">
+            </video>
 
-    </head>
+            <div class="homebutton">
+                <ul>
+                    <li><a href="#join">Join today</a></li>
+                </ul>
+            </div>
+            <!--End of home button-->
 
-    <body>
+            <section id="join">
+                <article>
+                    <form method="POST" action="">
+                        {{ form.hidden_tag() }} <!-- executes forms (required) -->
+                        <div class="form-register">
+                            <legend class="form-box">Join Today</legend>
 
-        <div id="container">
+                            <!-- Block for first name -->
+                            <div class="form-group">
+                                {{ form.first_name.label(class="form-inputs-text") }}
+                            </div>
 
-            <!--Use this area for website name or logo-->
-            <header>
-                    <!-- <a href="index.html"><img src="images/ez.png" alt="ez logo" class="logo"></a> -->
-                <a href="{{ url_for('home') }}"><img src="{{ url_for('static', filename= 'endzone.png') }}" alt="endzone logo" class="logo"></a>
-                <!-- <a href="index.html"><img src="images/spartan.png" alt="spartan logo" class="logo"></a> -->
-                    <!--Use the nav area to add hyperlinks to the other pages within the website-->
-                <nav>
-                    <ul>
-                        {% if current_user.is_authenticated %}
-                            <li><a href="{{ url_for('feed') }}">  <i class="fa fa-server"></i> Feed</a></li>
-                            <li><a href="{{ url_for('event') }}"> <i class="fa fa-calendar"></i> Events</a></li>
-                            <li><a href="friends.html"> <i class="fa fa-users"></i> Friends</a></li>
-                            <li><a href="{{ url_for('trending') }}"> <i class="fa fa-line-chart"></i> Trending</a></li>
-                            <li><a href="{{ url_for('team') }}"> <i class="fa fa-sitemap"></i> Team</a></li>
-                            <li><a href="{{ url_for('profile') }}"> <i class="fa fa-user"></i> Profile</a></li>
-                            <li><a href="{{ url_for('logout') }}"> <i class="fa fa-sign-out"></i> Logout </a></li>
-                        {% else %}
-                            <li><a href="{{ url_for('home') }}"> <i class="fa fa-home"></i> Home</a></li>
-{#                            <li><a href="{{ url_for('feed') }}">Feed</a></li>#}
-                            <li><a href="{{ url_for('about') }}"> <i class="fa fa-book"></i> About</a></li>
-                            <li><a href="{{ url_for('contact_us') }}"> <i class="fa fa-envelope"></i> Contact Us</a></li>
-{#                            <li><a href="{{ url_for('event') }}">Events</a></li>#}
-{#                            <li><a href="friends.html">Friends</a></li>#}
-{#                            <li><a href="{{ url_for('trending') }}">Trending</a></li>#}
-{#                            <li><a href="{{ url_for('team') }}">Team</a></li>#}
-{#                            <li><a href="{{ url_for('profile') }}">Profile</a></li>#}
-                            <li><a href="{{ url_for('login') }}"> <i class="fa fa-sign-in"></i> Login</a></li>
-                        {% endif %}
-                    </ul>
-                </nav>
-            </header>
+                            <div class="form-group">
+                                {% if form.first_name.errors %}
+                                    {{ form.first_name(class="form-inputs error-input") }}
+
+                                    {% for error in form.first_name.errors %}
+                                        <span class="error-text"> {{ error }} </span>
+                                    {% endfor %}
+                                {% else %}
+                                    {{ form.first_name(class="form-inputs") }}
+                                {% endif %}
+                            </div>
+                            <!-- end of first name -->
+
+                            <!-- Block for last name -->
+                            <div class="form-group">
+                                {{ form.last_name.label(class="form-inputs-text") }}
+                            </div>
+
+                            <div class="form-group">
+                                {% if form.last_name.errors %}
+                                    {{ form.last_name(class="form-inputs error-input") }}
+
+                                    {% for error in form.last_name.errors %}
+                                        <span class="error-text"> {{ error }} </span>
+                                    {% endfor %}
+                                {% else %}
+                                    {{ form.last_name(class="form-inputs") }}
+                                {% endif %}
+                            </div>
+                            <!-- end of last name -->
+
+                            <!-- Block for email -->
+                            <div class="form-group">
+                                {{ form.email.label(class="form-inputs-text") }}
+                            </div>
+
+                            <div class="form-group">
+                                {% if form.email.errors %}
+                                    {{ form.email(class="form-inputs error-input") }}
+
+                                    {% for error in form.email.errors %}
+                                        <span class="error-text"> {{ error }} </span>
+                                    {% endfor %}
+                                {% else %}
+                                    {{ form.email(class="form-inputs") }}
+                                {% endif %}
+                            </div>
+                            <!-- end of email -->
+
+                            <!-- Block for password -->
+                            <div class="form-group">
+                                {{ form.password.label(class="form-inputs-text") }}
+                            </div>
+
+                            <div class="form-group">
+                                {% if form.password.errors %}
+                                    {{ form.password(class="form-inputs error-input") }}
+
+                                    {% for error in form.password.errors %}
+                                        <span class="error-text"> {{ error }} </span>
+                                    {% endfor %}
+                                {% else %}
+                                    {{ form.password(class="form-inputs") }}
+                                {% endif %}
+                            </div>
+                            <!-- end of password -->
+
+                            <!-- Block for confirm password -->
+                            <div class="form-group">
+                                {{ form.confirm_password.label(class="form-inputs-text") }}
+                            </div>
+
+                            <div class="form-group">
+                                {% if form.confirm_password.errors %}
+                                    {{ form.confirm_password(class="form-inputs error-input") }}
+
+                                    {% for error in form.confirm_password.errors %}
+                                        <span class="error-text"> {{ error }} </span>
+                                    {% endfor %}
+                                {% else %}
+                                    {{ form.confirm_password(class="form-inputs") }}
+                                {% endif %}
+                            </div>
+                            <!-- end of confirm password -->
+
+                            <!-- Block for birthday -->
+                            <div class="form-group">
+                                {{ form.birthday.label(class="form-inputs-text") }}
+                            </div>
+
+                            <div class="form-group">
+                                <select name="birthday_month">
+                                    <option value="">Month</option>
+                                    <option value="January">January</option>
+                                    <option value="February">February</option>
+                                    <option value="March">March</option>
+                                    <option value="April">April</option>
+                                    <option value="May">May</option>
+                                    <option value="June">June</option>
+                                    <option value="July">July</option>
+                                    <option value="August">August</option>
+                                    <option value="September">September</option>
+                                    <option value="October">October</option>
+                                    <option value="November">November</option>
+                                    <option value="December">December</option>
+                                </select>
+
+                                <select name="birthday_day">
+                                    <option value="">Day</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                    <option value="24">24</option>
+                                    <option value="25">25</option>
+                                    <option value="26">26</option>
+                                    <option value="27">27</option>
+                                    <option value="28">28</option>
+                                    <option value="29">29</option>
+                                    <option value="30">30</option>
+                                    <option value="31">31</option>
+                                </select>
+
+                                <select name="birthday_year">
+                                    <option value="">Year</option>
+                                    <option value="2020">2020</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2016">2016</option>
+                                    <option value="2015">2015</option>
+                                    <option value="2014">2014</option>
+                                    <option value="2013">2013</option>
+                                    <option value="2012">2012</option>
+                                    <option value="2011">2011</option>
+                                    <option value="2010">2010</option>
+                                    <option value="2009">2009</option>
+                                    <option value="2008">2008</option>
+                                    <option value="2007">2007</option>
+                                    <option value="2006">2006</option>
+                                    <option value="2005">2005</option>
+                                    <option value="2004">2004</option>
+                                    <option value="2003">2003</option>
+                                    <option value="2002">2002</option>
+                                    <option value="2001">2001</option>
+                                    <option value="2000">2000</option>
+                                    <option value="1999">1999</option>
+                                    <option value="1998">1998</option>
+                                    <option value="1997">1997</option>
+                                    <option value="1996">1996</option>
+                                    <option value="1995">1995</option>
+                                    <option value="1994">1994</option>
+                                    <option value="1993">1993</option>
+                                    <option value="1992">1992</option>
+                                    <option value="1991">1991</option>
+                                    <option value="1990">1990</option>
+                                    <option value="1989">1989</option>
+                                    <option value="1988">1988</option>
+                                    <option value="1987">1987</option>
+                                    <option value="1986">1986</option>
+                                    <option value="1985">1985</option>
+                                    <option value="1984">1984</option>
+                                    <option value="1983">1983</option>
+                                    <option value="1982">1982</option>
+                                </select>
+                            </div>
+                            <!-- end of birthday -->
+
+                            <!-- Block for gender -->
+                            <div class="form-group">
+                                {{ form.gender.label(class="form-inputs-text") }}
+                            </div>
+
+                            <div class="form-group">
+                                <input type="checkbox" value="1" name="gender">Male
+                                <input type="checkbox" value="2" name="gender">Female
+                            </div>
+                            <!-- end of gender -->
+
+                            <!-- Block for City -->
+                            <div class="form-group">
+                                {{ form.city.label(class="form-inputs-text") }}
+                            </div>
+
+                            <div class="form-group">
+                                {{ form.city(class="form-inputs") }}
+                            </div>
+                            <!-- end of confirm password -->
+
+                            <!-- Block for City -->
+                            <div class="form-group">
+                                {{ form.state.label(class="form-inputs-text") }}
+                            </div>
+
+                            <div class="form-group">
+                                {{ form.state(class="form-inputs") }}
+                            </div>
+                            <!-- end of confirm password -->
+
+                            <!-- Block for High School -->
+                            <div class="form-group">
+                                {{ form.high_school.label(class="form-inputs-text") }}
+                            </div>
+
+                            <div class="form-group">
+                                {% if form.high_school.errors %}
+                                    {{ form.high_school(class="form-inputs error-input") }}
+
+                                    {% for error in form.high_school.errors %}
+                                        <span class="error-text"> {{ error }} </span>
+                                    {% endfor %}
+                                {% else %}
+                                    {{ form.high_school(class="form-inputs") }}
+                                {% endif %}
+                            </div>
+                            <!-- end of high school -->
+
+                            <!-- block for sport -->
+                            <div class="form-group">
+                                {{ form.sport.label(class="form-inputs-text") }}
+                            </div>
+
+                            <div class="form-group">
+                                {% if form.sport.errors %}
+                                    {{ form.sport(class="form-inputs error-input") }}
+
+                                    {% for error in form.sport.errors %}
+                                        <span class="error-text"> {{ error }} </span>
+                                    {% endfor %}
+                                {% else %}
+                                    {{ form.sport(class="form-inputs") }}
+                                {% endif %}
+                            </div>
+                            <!-- end of sport -->
+
+                            <!-- Block for position -->
+                            <div class="form-group">
+                                {{ form.position.label(class="form-inputs-text") }}
+                            </div>
+
+                            <div class="form-group">
+                                {% if form.position.errors %}
+                                    {{ form.position(class="form-inputs error-input") }}
+
+                                    {% for error in form.position.errors %}
+                                        <span class="error-text"> {{ error }} </span>
+                                    {% endfor %}
+                                {% else %}
+                                    {{ form.position(class="form-inputs") }}
+                                {% endif %}
+                            </div>
+                            <!-- end of position -->
+
+                            <div class="form-group-submit">
+                                {{ form.submit(class="form-inputs-submit-signup") }}
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="bottom_text">
+                        <small> Already Have An Account? <a class="link-properties" href="{{ url_for('login') }}"> Sign in </a> </small>
+                    </div>
+
+                </article>
+            </section>
+            <!--End of join-->
+
+
         </div>
-        {% block content %} {% endblock content%}
-    </body>
+        <!--End of main-->
 
-</html>
+        <!-- Use the footer area to add webpage footer content -->
+        <footer>
+            &copy; Copyright 2020. All Rights Reserved. <br>
+            <a href="mailto:help@cis350.com">help@cis350.com</a>
+        </footer>
+
+        </div>
+        <!--End of container-->
+{% endblock %}
