@@ -1,0 +1,123 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div id="container">
+    <!-- Use the main area to add the main content of the webpage -->
+    <div id=main>
+        <!-- Section that holds Form -->
+        <section class="onlyfeed">
+            <!-- Contains form fields -->
+            <form method="POST" action="" enctype="multipart/form-data">
+                {{ form.hidden_tag() }} <!-- executes forms (required) -->
+                <!-- Organizes actual form fields -->
+                <div class="form-update">
+                    <!-- Sets form title -->
+                    <legend class="form-box">Create Event</legend>
+
+                    <!-- Title form -->
+                    <div class="form-group">
+                        {{ form.title.label(class="form-inputs-text") }}
+                    </div>
+
+                    <div class="form-group">
+                        <!-- Checks to see if there were any errors upon submit -->
+                        {% if form.title.errors %}
+                            {{ form.title(class="form-inputs error-input") }}
+                            <!-- Displays errors (if any) -->
+                            {% for error in form.title.errors %}
+                                <span class="error-text"> {{ error }} </span>
+                            {% endfor %}
+                        {% else %}
+                            {{ form.title(class="form-inputs") }}
+                        {% endif %}
+                    </div>
+                    <!-- end of title -->
+
+                    <!-- Date form -->
+                    <div class="form-group">
+                        {{ form.date.label(class="form-inputs-text") }}
+                    </div>
+
+                    <div class="form-group">
+                        <!-- Checks to see if there were any errors upon submit -->
+                        {% if form.date.errors %}
+                            {{ form.date(class="form-inputs error-input") }}
+                            <!-- Displays errors (if any) -->
+                            {% for error in form.date.errors %}
+                                <span class="error-text"> {{ error }} </span>
+                            {% endfor %}
+                        {% else %}
+                            {{ form.date(class="form-inputs") }}
+                        {% endif %}
+                    </div>
+                    <!-- end of date -->
+
+                    <!-- Time form -->
+                    <div class="form-group">
+                        {{ form.time.label(class="form-inputs-text") }}
+                    </div>
+
+                    <div class="form-group">
+                        <!-- Checks to see if there were any errors upon submit -->
+                        {% if form.time.errors %}
+                            {{ form.time(class="form-inputs error-input") }}
+                            <!-- Displays errors (if any) -->
+                            {% for error in form.time.errors %}
+                                <span class="error-text"> {{ error }} </span>
+                            {% endfor %}
+                        {% else %}
+                            {{ form.time(class="form-inputs") }}
+                        {% endif %}
+                    </div>
+                    <!-- end of time -->
+
+                    <!-- Location form -->
+                    <div class="form-group">
+                        {{ form.location.label(class="form-inputs-text") }}
+                    </div>
+
+                    <div class="form-group">
+                        <!-- Checks to see if there were any errors upon submit -->
+                        {% if form.location.errors %}
+                            {{ form.location(class="form-inputs error-input") }}
+                            <!-- Displays errors (if any) -->
+                            {% for error in form.location.errors %}
+                                <span class="error-text"> {{ error }} </span>
+                            {% endfor %}
+                        {% else %}
+                            {{ form.location(class="form-inputs") }}
+                        {% endif %}
+                    </div>
+                    <!-- end of location -->
+
+                    <!-- Content form -->
+                    <div class="form-group">
+                        {{ form.content.label(class="form-inputs-text") }}
+                    </div>
+
+                    <div class="form-group">
+                        <!-- Checks to see if there were any errors upon submit -->
+                        {% if form.content.errors %}
+                            {{ form.content(class="form-inputs error-input") }}
+                            <!-- Displays errors (if any) -->
+                            {% for error in form.content.errors %}
+                                <span class="error-text"> {{ error }} </span>
+                            {% endfor %}
+                        {% else %}
+                            {{ form.content(class="form-inputs") }}
+                        {% endif %}
+                    </div>
+                    <!-- end of Content -->
+
+                    <div class="form-group-submit">
+                        {{ form.submit() }}
+                    </div>
+                </div>
+            </form>
+            <!-- End of form -->
+        </section>
+        <!-- End of section -->
+    </div>
+    <!--End of main-->
+</div>
+{% endblock content %}

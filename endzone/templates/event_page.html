@@ -1,0 +1,85 @@
+{% extends "layout.html"%}
+
+{% block content %}
+<div id="container">
+	<!-- Use the main area to add the main content of the webpage -->
+	<div id=main>
+		<img src="{{ url_for('static', filename='bball_event.jpg') }}" alt="soccer ball" class="imgbanner">
+
+        {% if event.author == current_user  %}
+            <section class="event-side-links">
+                <ul>
+                    <li><a style="color: white" href="{{ url_for('create_event_post', e_id=event_id) }}"> <i class="fa fa-plus"></i> New Post</a></li>
+                </ul>
+            </section>
+        {% endif %}
+
+        <!-- Profile Image -->
+		<div class="profile-picture">
+			<img class="profile-img" src="{{ image }}">
+		</div>
+        <!-- end of profile image-->
+
+		<section class="onlyfeed">
+            <!-- Profile bio -->
+			<article class="post">
+				<h2>Event Description</h2>
+				<ul>
+					<li>Name: {{ event.title }}</li>
+					<li>Date: {{ event.date }}</li>
+					<li>Time: {{ event.time }}</li>
+					<li>Location: {{ event.location }}</li>
+				</ul>
+				<p>{{ event.content }}</p>
+			</article>
+            <!-- end of bio -->
+
+            <!-- Displays posts -->
+			{% for post in posts %}
+                {% if post.event_id == event.id %}
+					<article class="post">
+                        {% if event.author == current_user %}
+                            <div class="post-misc">
+                                <ul class="button-side">
+                                    <li class="edit-properties">
+                                        <a href="{{ url_for('update_event_post', post_id=post.id, event_ID=event.id) }}" style="color: white;"> <i class="fa fa-pencil"></i> Edit </a>
+                                    </li>
+                                    <li class="delete-properties">
+                                        <a href="{{ url_for('delete_event_post', post_id=post.id, event_ID=event.id) }}" style="color: white;"> <i class="fa fa-trash"></i> Delete </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        {% endif %}
+
+                        <div class="smallfakeimg">
+                            <img class="article-img" src="{{ image }}">
+                        </div>
+                        <div class="post-title">
+                            {{ post.title }}
+                        </div>
+
+                        <div class="post-publisher">
+                            <a class="user-properties" href="{{ url_for('get_profile', author_id=event.author.id) }}"> {{ event.author.first_name }} {{ event.author.last_name }} </a>
+                            {{ post.date_posted.strftime('%m/%d/%y') }}
+                        </div>
+
+                        <p class="post-content">{{ post.content }}</p>
+
+                        {% if post.post_image != 'temporary.png' %}
+                            <div class="fakeimg">
+                                <img class="post-image-properties" src="{{ url_for('static', filename='pics/' + post.post_image) }}">
+                            </div>
+                        <!-- Checks to see if a video was uploaded -->
+                        {% elif post.post_video != 'placeholder.mp4' %}
+                            <video class="video-formatting" width="730" height="500" controls>
+                                <source src="{{ url_for('static', filename='pics/' + post.post_video) }}" type="video/mp4">
+                            </video>
+                        {% endif %}
+					</article>
+                {% endif %}
+			{% endfor %}
+        <!-- end of posts -->
+		</section>
+        </div>
+	</div><!--End of main-->
+{% endblock %}

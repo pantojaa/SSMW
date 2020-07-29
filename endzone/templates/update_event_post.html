@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div id=main xmlns="http://www.w3.org/1999/html">
+        <!-- Used for formatting -->
+		<section class="rightcolumn">
+		</section>
+        <!-- end of formatting -->
+
+		<section class="feed">
+			<article class="post">
+                <form method="POST" action="" enctype="multipart/form-data">
+                    {{ form.hidden_tag() }}
+                    <div class="form-post">
+                        <legend class="new_post-legend">{{ legend }}</legend>
+
+                        <div class="form-group-post">
+                            {{ form.title.label(class="form-inputs-text") }}
+                        </div>
+
+                        <div class="form-group-post-title">
+                            {% if form.title.errors %}
+                                {{ form.title(class="form-inputs error-input") }}
+
+                                {% for error in form.title.errors %}
+                                    <span class="error-text"> {{ error }} </span>
+                                {% endfor %}
+                            {% else %}
+                                    {{ form.title(class="form-inputs") }}
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group-post">
+                            {{ form.content.label(class="form-inputs-text") }}
+                        </div>
+
+                        <div class="form-group-post-content">
+                            {% if form.content.errors %}
+                                {{ form.content(class="form-inputs error-input") }}
+
+                                {% for error in form.content.errors %}
+                                    <span class="error-text"> {{ error }} </span>
+                                {% endfor %}
+                            {% else %}
+                                {{ form.content(class="form-inputs") }}
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group-post">
+                            {{ form.image.label() }}
+                            {{ form.image() }}
+
+                            {% if form.image.errors %}
+                                {% for error in form.image.errors %}
+                            <span class="error-text"> {{ error }} </span> </br>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group-submit-post">
+                            {{ form.submit(class="form-inputs-submit-post") }}
+                        </div>
+                    </div>
+                </form>
+			</article>
+
+		</section>
+	</div>
+    <!--End of main-->
+{% endblock content %}

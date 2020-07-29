@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+{#    <!-- Use the main area to add the main content of the webpage -->#}
+	<div id=main>
+		<div id="userlinks">
+			<ul>
+				<li><a href="profile.html">Profile</a></li>
+				<li><a href="friends.html">Friends</a></li>
+				<li><a href="messages.html">Messages</a></li>
+				<li><a href="feed.html">Feed</a></li>
+				<li><a href="trending.html">Trending</a></li>
+				<li><a href="event.html">Events</a></li>
+				<li><a href="team.html">Team</a></li>
+				<li><a href="about.html">About</a></li>
+				<li><a href="index.html">Sign out</a></li>
+			</ul>
+		</div><!--End of userlinks-->
+
+
+		<div class="event-feed">
+            {% for post in posts %}
+                {% if post.author != current_user %}
+                    <article class="post">
+                        <div class="smallfakeimg">
+                            <img class="article-img" src="{{  url_for('static', filename='pics/' + post.author.img_file)}}">
+                        </div>
+                        <div class="post-title">
+                            <a class="user-properties" href="{{ url_for('get_profile', author_id=post.author.id) }}"> {{ post.author.first_name }} {{ post.author.last_name }} </a>
+                        </div>
+
+                        <div class="post-publisher">
+                            Born: {{ post.author.birth_month }} {{ post.author.birth_date }}, {{ post.author.birth_year }} </br>
+                            Lives in: {{ post.author.city }} {{ post.author.state }}
+                        </div>
+                    </article>
+                {% endif %}
+            {% endfor %}
+		</div><!--End of feed-->
+    </div>
+{% endblock content %}
