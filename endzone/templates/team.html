@@ -1,50 +1,74 @@
 {% extends "layout.html" %}
 
 {% block content %}
-
 	<div id="container">
 	<!-- Use the main area to add the main content of the webpage -->
 	<div id=main>
-		<img src="images/soccerball.jpg" alt="soccer ball" class="imgbanner">
-		<section class="onlyfeed">
+		<img src="{{ url_for('static', filename='soccerball.jpg') }}" alt="soccer ball" class="imgbanner">
+		<div class="onlyfeed">
+
+            <div class="profile-picture">
+                <img class="article-img-fixed" src="{{ url_for('static', filename='team_profile_pic.png')}}">
+            </div>
 
 			<article class="post">
-				<h2>Team Bio</h2>
-				<p>Some text.. swgfvhasr';viohsargd 'SODhvoSDhv'SPODIhv' 'osIDh'osIDhv"SODhvs" 'sOPDIh'SODIhSOADIh'o SADh'opS Dhoh</p>
+				<h2>Team Description</h2>
+				<ul>
+					<li>Name: Soccer Stars</li>
+					<li>Sport: Soccer</li>
+					<li>Location: Florida</li>
+				</ul>
+				<p>We are Soccer Stars, a successful club soccer team in Florida. We currently boast a 3-to-1 win ratio in our division. We hope to inspire you to play the great sport of soccer!</p>
 			</article>
 
-			<article class="post">
-				<div class="smallfakeimg">Pic</div>
-				<h2>TITLE HEADING</h2>
-				<h5>Title description, Dec 7, 2017</h5>
-				<div class="fakeimg">Image</div>
-				<p>Some text..</p>
-			</article>
+            <article class="post">
+                <div class="smallfakeimg">
+                    <img class="article-img" src="{{  url_for('static', filename='team_profile_pic.jpg')}}">
+                </div>
+                <div class="post-title"> Soccer Stars </div>
+                <div class="post-publisher"> July 4, 2020 </div>
+                <p class="post-content"> An arial drone shot of our latest game! </p>
+                <video width="730" height="500" controls>
+                    <source src="{{ url_for('static', filename='soccer_stadium.mp4') }}" type="video/mp4">
+                </video>
+            </article>
 
-			<article class="post">
-				<div class="smallfakeimg">Pic</div>
-				<h2>TITLE HEADING</h2>
-				<h5>Title description, Dec 7, 2017</h5>
-				<p>Some text.. swgfvhasr';viohsargd 'SODhvoSDhv'SPODIhv' 'osIDh'osIDhv"SODhvs" 'sOPDIh'SODIhSOADIh'o SADh'opS Dhoh</p>
-			</article>
+            <article class="post">
+                <div class="smallfakeimg">
+                    <img class="article-img" src="{{  url_for('static', filename='team_profile_pic.jpg')}}">
+                </div>
+                <div class="post-title"> Soccer Stars </div>
+                <div class="post-publisher"> May 29th, 2020 </div>
+                <p class="post-content"> Training for our big game on June 4th. </p>
+                <div class="fakeimg">
+                    <img class="post-image-properties" src="{{ url_for('static', filename='training.jpeg') }}">
+                </div>
+            </article>
 
-			<article class="post">
-				<div class="smallfakeimg">Pic</div>
-				<h2>TITLE HEADING</h2>
-				<h5>Title description, Dec 7, 2017</h5>
-				<p>Some text.. swgfvhasr';viohsargd 'SODhvoSDhv'SPODIhv' 'osIDh'osIDhv"SODhvs" 'sOPDIh'SODIhSOADIh'o SADh'opS Dhoh</p>
-			</article>
+            <article class="post">
+                <div class="smallfakeimg">
+                    <img class="article-img" src="{{  url_for('static', filename='team_profile_pic.jpg')}}">
+                </div>
+                <div class="post-title"> Soccer Stars </div>
+                <div class="post-publisher"> May 18th, 2020 </div>
+                <p class="post-content"> Running a scrimmage with our pals Atlanta Kings. </p>
+                <video width="730" height="500" controls>
+                    <source src="{{ url_for('static', filename='soccer_game.mp4') }}" type="video/mp4">
+                </video>
+            </article>
 
-			<article class="post">
-				<div class="smallfakeimg">Pic</div>
-				<h2>TITLE HEADING</h2>
-				<h5>Title description, Dec 7, 2017</h5>
-				<div class="fakeimg">Image</div>
-				<p>Some text..</p>
-			</article>
+            <article class="post">
+                <div class="smallfakeimg">
+                    <img class="article-img" src="{{  url_for('static', filename='team_profile_pic.jpg')}}">
+                </div>
+                <div class="post-title"> Soccer Stars </div>
+                <div class="post-publisher"> May 8th, 2020 </div>
+                <p class="post-content"> Adrian with the save! </p>
+                <div class="fakeimg">
+                    <img class="post-image-properties" src="{{ url_for('static', filename='goalie.jpeg') }}">
+                </div>
+            </article>
 
-		</section>
+		</div><!--End of onlyfeed-->
 	</div><!--End of main-->
-
-	</div>
 {% endblock %}
